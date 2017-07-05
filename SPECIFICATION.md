@@ -25,14 +25,15 @@ This setup has the following advantages:
 * By running the environment in a virtual system like Docker, the device can be easily reset to a known state
 when the *renter* is done using it.
 
-* By using reverse SSH to a central server, the *rentees* can be provided with a command line interface to the device while
+* By using reverse SSH to connect to a central server, the *rentees* can be provided with a command line interface to the device while
 by-passing network firewalls. This creates network risks that *renters* need to be aware of.
 
 * Renting out the computing power of the hardware allows hardware owners to profit from their hardware and internet connection.
 
-* Creating distributed, semi-anonymouse VPS micro-servers has interesting legal ramifications and moves the internet towards
+* Creating distributed, semi-anonymouse VPS micro-servers, hosted in peoples homes, has interesting legal ramifications and moves the internet towards
 a more reliable, censorless architecture.
 
+![Simple server client diagram](images/simple-diagram.jpg?raw=true "Simple server client diagram")
 
 # Server Overview
 The primary purpose of the server software is to orchastrate the network of devices and facilitate financial transations. 
@@ -45,7 +46,7 @@ registration call, the server opens a new port and returns this information to t
 reverse SSH connection to the new port, tunneling through any firewalls, and creating a command line interface accessible to
 the renter.
 
-At the same time, a minimal Linux shell with an SSH server is created on the server. This shell allows connection to the
+At the same time, a minimal Linux shell (inside a Docker container) with an SSH server is created on the server. This shell allows connection to the
 command line interface via SSH (port 22), and also opens port 80 (http) and port 443 (https). A subdomain is created
 on the server allowing access to these three ports. This allows clients to connect to the command line on the device and also
 serve web pages and web apps.
@@ -57,19 +58,19 @@ advantage of allowing server owners to create semi-anonymous markets.
 
 Renters will fill out a form to register their device, be given a key, and
 then install the software on the client hardware along with the key. Rental of devices will be billed by the hour.
-When a device is registered its hardware (memory, CPU, hard-drive space) will be verified. It will then be added
+When a device is registered, its hardware (memory, CPU, hard-drive space) will be verified. It will then be added
 to the marketplace and labeled as available for rent. The renters can set the hourly rate they are willing to rent the
 device for.
 
 When a renter agrees to the rental contract, the device is taken off the market. A random username and password will
 be generated and sent to the renter, and the device will be dedicated for their use. As long as the device is connected
-to the internet, the renter will be billed at the hourly rate, until the stop the rental contract. At that point the device
+to the internet, the renter will be billed at the hourly rate, until they stop the rental contract. At that point the device
 is wiped and re-registered into the marketplace.
 
-## Federaded Servers
+## Federated Servers
 Server software will be able to establish connections with other servers at the desire of the server administrator. 
 This connection will allow a server to add devices to its marketplace that are managed by these third-party servers.
 By creating a federation of marketplaces, the overall network has no single point of failure. 
 
 
-![Alt text](images/testimage.jpg?raw=true "Title")
+![Federated network of servers](images/federated-diagram.jpg?raw=true "Federated network of servers")
