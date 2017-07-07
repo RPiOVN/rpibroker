@@ -28,20 +28,27 @@ password to user 'pi'.
 
 # Port Forwarding using Reverse SSH
 Instructions below are pieced together from the following tutorials:
-	• https://toic.org/blog/2009/reverse-ssh-port-forwarding/
-	• https://askubuntu.com/questions/50064/reverse-port-tunnelling
+* https://toic.org/blog/2009/reverse-ssh-port-forwarding/
+* https://askubuntu.com/questions/50064/reverse-port-tunnelling
 
-	1. Enable Gateway ports in the SSHd server.
-		a. sudo nano /etc/ssh/sshd_config
-		b. At the bottom add this: GatewayPorts clientspecified
-		c. Save the file and restart sshd with this command: /etc/init.d/ssh restart
-	2. On the RPi, establish a reverse SSH connection with port forwarding with this command:ssh -R 45.55.12.52:8000:localhost:80 trout@45.55.12.52This forwards port 80 on the RPi to port 8000 on the server (45.55.12.52). It will request the password for user 'trout'.
-	3. Access the webpage being served by the RPi on port 80 by calling http://45.55.12.52:8000
+**Steps:**
+
+1. Enable Gateway ports in the SSHd server.
+  1. `sudo nano /etc/ssh/sshd_config`
+  2. At the bottom add this: `GatewayPorts clientspecified`
+  3. Save the file and restart sshd with this command: `/etc/init.d/ssh restart`
+  
+2. On the RPi, establish a reverse SSH connection with port forwarding with this command:
+`ssh -R 45.55.12.52:8000:localhost:80 trout@45.55.12.52`
+This forwards port 80 on the RPi to port 8000 on the server (45.55.12.52). It will request the password for user 'trout'.
+
+3. Access the webpage being served by the RPi on port 80 by calling http://45.55.12.52:8000
 
 
-Setting Up a Sub-Domain with NGINX
+
+# Setting Up a Sub-Domain with NGINX
 This solution comes from this Stack Overflow thread:
-http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask
+* http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask
 
 	1. Setup the GatewayPorts in the sshd_config file.
 	2. Setup a port 80 forwarding on the RPi to port 8080 on Droplet server:ssh -R 107.170.227.211:8080:localhost:80 safeuser@107.170.227.211
