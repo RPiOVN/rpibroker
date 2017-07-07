@@ -34,9 +34,9 @@ Instructions below are pieced together from the following tutorials:
 **Steps:**
 
 1. Enable Gateway ports in the SSHd server.
-  1. `sudo nano /etc/ssh/sshd_config`
-  2. At the bottom add this: `GatewayPorts clientspecified`
-  3. Save the file and restart sshd with this command: `/etc/init.d/ssh restart`
+  * `sudo nano /etc/ssh/sshd_config`
+  * At the bottom add this: `GatewayPorts clientspecified`
+  * Save the file and restart sshd with this command: `/etc/init.d/ssh restart`
   
 2. On the RPi, establish a reverse SSH connection with port forwarding with this command:
 `ssh -R 45.55.12.52:8000:localhost:80 trout@45.55.12.52`
