@@ -50,9 +50,13 @@ This forwards port 80 on the RPi to port 8000 on the server (45.55.12.52). It wi
 This solution comes from this Stack Overflow thread:
 * http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask
 
-	1. Setup the GatewayPorts in the sshd_config file.
-	2. Setup a port 80 forwarding on the RPi to port 8080 on Droplet server:ssh -R 107.170.227.211:8080:localhost:80 safeuser@107.170.227.211
-	3. Add these lines to the nginx default file:
+1. Setup the GatewayPorts in the sshd_config file.
+
+2. Setup a port 80 forwarding on the RPi to port 8080 on Droplet server:
+   `ssh -R 107.170.227.211:8080:localhost:80 safeuser@107.170.227.211`
+
+3. Add these lines to the nginx default file:
+```
 	server {
 		listen 80;
 		server_name rpi.christroutner.com;
@@ -60,20 +64,28 @@ This solution comes from this Stack Overflow thread:
 		location / {
 				proxy_pass http://christroutner.com:8080;
 		}   
-	}
-	4. Check the syntax of the file with this command:sudo nginx -t
-	5. If the syntax checks out, reboot the nginx service:sudo service nginx restart
-	6. Point a browser at rpi.christroutner.com
+	}
+```
 
-Logging Into SSH Without a Password
-source: 
-http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id
-
-	1. Create a user on the server. Assuming user 'user-ssh' and server with IP 104.236.184.95
-	2. On RPi: 'ssh-keygen' to generate key
-	3. On RPi: 'ssh-copy-id -i ~/.ssh/id_rsa.pub user-ssh@104.236.184.95'
-	4. Now log into server with 'ssh user-ssh@104.236.184.95' and a password should not be needed.
+4. Check the syntax of the file with this command:
+  `sudo nginx -t`
+  
+5. If the syntax checks out, reboot the nginx service:
+  `sudo service nginx restart`
+  
+6. Point a browser at rpi.christroutner.com
 
 
-Next Steps:
-	• Setup a subdomain on christroutner.com that points to an RPi. Proxy pass ports 80, 443, and 22.
+
+# Logging Into SSH Without a Password
+source: http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id
+
+1. Create a user on the server. Assuming user '**user-ssh**' and server with IP **104.236.184.95**
+2. On RPi: 'ssh-keygen' to generate key
+3. On RPi: 'ssh-copy-id -i ~/.ssh/id_rsa.pub user-ssh@104.236.184.95'
+4. Now log into server with 'ssh user-ssh@104.236.184.95' and a password should not be needed.
+
+
+
+# Next Steps:
+* Setup a subdomain on christroutner.com that points to an RPi. Proxy pass ports 80, 443, and 22.
