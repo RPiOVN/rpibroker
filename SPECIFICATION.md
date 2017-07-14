@@ -72,5 +72,28 @@ Server software will be able to establish connections with other servers at the 
 This connection will allow a server to add devices to its marketplace that are managed by these third-party servers.
 By creating a federation of marketplaces, the overall network has no single point of failure. 
 
-
 ![Federated network of servers](images/federated-diagram.jpg?raw=true "Federated network of servers")
+
+
+# Client Server Handshaking
+Below are a series of steps specifiying how the Server and Client (Raspberry Pi or other IoT device) will initiate a
+connection to allow the global internet connections to the Client behind any arbitrary firewalls and network devices.
+
+1. The Renter logs into their account the Server to register the Client device. They recieve a Hash the Client
+uses to identify itself to the server.
+
+2. The Renter copies the Hash into a .json file on the Client and starts the Client software.
+
+3. The Client software makes an API call to the Server. It passes in the Hash and the Server responds with
+a computer-generated username, password, and three port numbers. These three port numbers will be used for
+SSH, HTTP, and HTTPS connections. The client creates three reverse SSH connects forwarding Client ports 22, 80, and 443
+to the three assigned ports on the Server.
+
+4. At the same time, the server creates a minimal Ubuntu Docker image with three ports linked to the Server's
+host system and a username and password corresponding to the ones given to the Client.
+
+5. The Server updates it's Nginx configuration file to create a new subdomain with ports 22, 80, and 443 forwarded
+to the assigned ports.
+
+It is not possible to make a reverse SSH call without giving the Client shell access to the Server. By restricting
+the connection to a minimal Ubuntu Docker image, the server can be better protected against malicious users.
