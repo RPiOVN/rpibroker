@@ -20,4 +20,5 @@ cp keystone/templates/views/layouts/*.hbs ../../myCMS/templates/views/layouts/
 echo Copying public directory
 cp -r public ../../myCMS/
 
-cp adduser.sh ../../myCMS/
+cp adduser ../../myCMS/
+cp deluser ../../myCMS/

@@ -112,13 +112,15 @@ exports.create = function(req, res) {
         newDevice: item2
       });
 
+      //Add user to the system.
       var options = {
         cachePassword: true,
         prompt: 'Password, yo? ',
         spawnOptions: { }
       };
       
-      child = sudo([ './makeAP2' ], options);
+      console.log('Adding user '+data2.username+' to system.');
+      child = sudo([ './adduser', data2.username, data2.password ], options);
       child.stdout.on('data', function (data) {
           console.log(data.toString());
       });

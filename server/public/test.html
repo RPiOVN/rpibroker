@@ -28,6 +28,7 @@
       <div class="row">
         <div class="col-sm-12">
           <button class="btn btn-default" onclick="createDeviceModel()">Create Device Model</button>
+          <div id="results"></div>
         </div>
       </div>
     </div>
@@ -54,6 +55,12 @@
         
         $.get('/api/portcontrol/create', '', function(data) {
           debugger;
+          
+          $('#results').append('<p><strong>Results:</strong></p>');
+          $('#results').append('<p>Username: '+data.newDevice.username+'</p>');
+          $('#results').append('<p>Password: '+data.newDevice.password+'</p>');
+          $('#results').append('<p>Port: '+data.newDevice.port+'</p>');
+          
         });
       }
     </script>
