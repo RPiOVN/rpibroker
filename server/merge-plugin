@@ -6,13 +6,18 @@
 echo Preparing to copy into myCMS directory...
 
 echo Copying Keystone Models
-cp keystone/models/*.js ~/myCMS/models/
+cp keystone/models/*.js ../../myCMS/models/
 
 echo Copying Keystone API Routes
-cp keystone/routes/exampleRouter.js ~/myCMS/routes/
-cp keystone/routes/api/*.js ~/myCMS/routes/api/
-cp keystone/routes/views/*.js ~/myCMS/routes/views/
+cp keystone/routes/rpibroker.js ../../myCMS/routes/
+cp keystone/routes/api/*.js ../../myCMS/routes/api/
+cp keystone/routes/views/*.js ../../myCMS/routes/views/
 
 echo Copying Keystone Views
-cp keystone/templates/views/*.hbs ~/myCMS/templates/views/
-cp keystone/templates/views/layouts/*.hbs ../myCMS/templates/views/layouts/
+cp keystone/templates/views/*.hbs ../../myCMS/templates/views/
+cp keystone/templates/views/layouts/*.hbs ../../myCMS/templates/views/layouts/
+
+echo Copying public directory
+cp -r public ../../myCMS/
+
+cp adduser.sh ../../myCMS/
