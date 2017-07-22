@@ -1,4 +1,8 @@
 #Creates a minimal Ubuntu Docker container with SSH daemon.
+#Right now this is a proof-of-concept test script. The point is to create a minimal
+#shell with SSHD running.
+#Secondary goals are to open ports 3105, 3106, and 3107 to the host system so
+#that reverse SSH port forwarded connections can be passed onto these ports.
 
 #IMAGE BUILD COMMANDS
 FROM ubuntu:16.10
@@ -78,7 +82,9 @@ USER connextcms
 #RUN rm -f keystone.js
 #RUN rm -f nodesource_setup.sh
 
-#EXPOSE 3000
+EXPOSE 3105
+EXPOSE 3106
+EXPOSE 3107
 
 
 #Temp commands just to get the container running
