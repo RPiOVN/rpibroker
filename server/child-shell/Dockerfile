@@ -5,7 +5,7 @@
 #that reverse SSH port forwarded connections can be passed onto these ports.
 
 #IMAGE BUILD COMMANDS
-FROM ubuntu:16.10
+FROM ubuntu:17.04
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 #Update the OS and install any OS packages needed.
@@ -13,14 +13,27 @@ RUN apt-get update
 RUN apt-get install -y sudo
 
 #Create the user 'connextcms' and add them to the sudo group.
-RUN useradd -ms /bin/bash connextcms
-RUN adduser connextcms sudo
+RUN useradd -ms /bin/bash testuser
+RUN adduser testuser sudo
 
 #Set password to 'password' change value below if you want a different password
-RUN echo connextcms:password | chpasswd
+RUN echo testuser:password | chpasswd
 
 #Set the working directory to be the connextcms home directory
-WORKDIR /home/connextcms
+WORKDIR /home/testuser
+
+#Copying these commands from https://github.com/rastasheep/ubuntu-sshd/blob/master/16.04/Dockerfile
+#and here: https://docs.docker.com/engine/examples/running_ssh_service/#build-an-eg_sshd-image
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+EXPOSE 22
+
+CMD    ["/usr/sbin/sshd", "-D"]
+
+
 
 #Install KeystoneJS Dependencies
 #RUN apt-get install -y git
