@@ -58,7 +58,7 @@ CMD    ["/usr/sbin/sshd", "-D"]
 #VOLUME /data/db
 
 #Log into the shell as the newly created user
-USER connextcms
+USER testuser
 
 #Create a directory for customizing the new site.
 #VOLUME /home/connextcms/theme
