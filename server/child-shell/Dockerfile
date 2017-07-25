@@ -1,4 +1,8 @@
+#Create a minimal Ubuntu shell running SSHD.
+#Adapted from this tutorial: https://docs.docker.com/engine/examples/running_ssh_service/#build-an-eg_sshd-image
+
 FROM ubuntu:17.04
+MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 #Install dependant packages
 RUN apt-get update 
