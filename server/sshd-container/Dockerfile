@@ -45,7 +45,7 @@ RUN echo testuser:password | chpasswd
 
 EXPOSE 4100
 
-COPY finalsetup
+COPY finalsetup finalsetup
 COPY dummyapp.js dummyapp.js
 
 #Dummy app just to get the container running with docker-compose.
