@@ -4,7 +4,7 @@ sshd-container:
 #  links:
 #    - mongodb
   ports:
-    - "4000-4999:4000-4999"
+    - "5000-5999:5000-5999"
 #  volumes:
 #    - ./theme:/home/connextcms/theme
 #    - ./plugins:/home/connextcms/plugins
