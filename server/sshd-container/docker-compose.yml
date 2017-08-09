@@ -1,4 +1,4 @@
-client-shell:
+sshd-container:
   build: .
   dockerfile: Dockerfile
 #  links:
