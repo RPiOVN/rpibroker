@@ -20,6 +20,13 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
+#Install KeystoneJS Dependencies
+RUN apt-get update
+RUN apt-get install -y git
+RUN apt-get install -y curl
+RUN apt-get install -y nano
+#RUN apt-get install -y python
+
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
