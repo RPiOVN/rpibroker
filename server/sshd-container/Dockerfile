@@ -33,7 +33,7 @@ RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 #RUN npm install -g npm
-RUN npm install -g express
+RUN npm install express
 
 #Create the user and add them to the sudo group.
 RUN useradd -ms /bin/bash testuser
@@ -45,11 +45,16 @@ RUN echo testuser:password | chpasswd
 
 EXPOSE 4100
 
+COPY finalsetup
+COPY dummyapp.js dummyapp.js
+
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
 #WORKDIR /home/connextcms/myCMS
-COPY dummyapp.js dummyapp.js
+
 #CMD ["node", "dummyapp.js"]
 
-CMD ["/usr/sbin/sshd", "-D", "-p", "4100"]
+#CMD ["/usr/sbin/sshd", "-D", "-p", "4100"]
+
+ENTRYPOINT ["./finalsetup", "node", "dummyapp.js"]
 
