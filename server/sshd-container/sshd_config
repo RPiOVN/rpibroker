@@ -87,8 +87,6 @@ UsePAM yes
 #AllowTcpForwarding yes
 
 GatewayPorts clientspecified
-Match User sshuser
-
 X11Forwarding yes
 #X11DisplayOffset 10
 #X11UseLocalhost yes
@@ -124,3 +122,4 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       AllowTcpForwarding no
 #       PermitTTY no
 #       ForceCommand cvs server
+Match User sshuser
