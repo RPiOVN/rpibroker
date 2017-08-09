@@ -36,11 +36,11 @@ RUN apt-get install -y build-essential
 RUN npm install express
 
 #Create the user and add them to the sudo group.
-RUN useradd -ms /bin/bash testuser
-RUN adduser testuser sudo
+RUN useradd -ms /bin/bash sshuser
+#RUN adduser testuser sudo
 
 #Set password to 'password' change value below if you want a different password
-RUN echo testuser:password | chpasswd
+RUN echo sshuser:sshuserpassword | chpasswd
 
 
 EXPOSE 6000-6200
