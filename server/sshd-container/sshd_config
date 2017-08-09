@@ -123,3 +123,6 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       PermitTTY no
 #       ForceCommand cvs server
 Match User sshuser
+ AllowTcpForwarding yes
+ PermitTunnel yes
+ AllowAgentForwarding yes
