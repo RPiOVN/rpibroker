@@ -47,6 +47,7 @@ EXPOSE 6000-6200
 
 COPY finalsetup finalsetup
 COPY dummyapp.js dummyapp.js
+COPY sshd_config /etc/ssh/sshd_config
 
 #Dummy app just to get the container running with docker-compose.
 #You can then enter the container with command: docker exec -it <container ID> /bin/bash
