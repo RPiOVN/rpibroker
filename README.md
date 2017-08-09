@@ -1,13 +1,15 @@
 # RPi Broker
 RPi Broker aspires to create a marketplace offering Virtal Private Servers (VPS), similar to 
 [Digital Ocean](http://digitalocean.com) or [Vultr](http://vultr.com). Instead of using a data center,
-the marketplace would instead use an array of psudo-anonymous Raspberry Pi or other IoT devices. Anyone
+the marketplace would instead use an array of psudo-anonymous [Raspberry Pi](https://www.raspberrypi.org/) 
+or other IoT devices. Anyone
 with an internet connection and a device capable of running [Docker](https://www.docker.com/) can rent
 that device in the RPi Broker marketplace.
 
 
 # State of Development
 Update: **8/9/17**
+
 This project is brand new and is still in the very early stages of development. The good news is that the technology
 stack needed to turn the vision into reality has already been identified. It's simply a matter of connecting the pieces
 and developing a user interface.
