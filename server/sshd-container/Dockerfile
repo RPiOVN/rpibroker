@@ -31,5 +31,12 @@ RUN echo testuser:password | chpasswd
 
 
 EXPOSE 4100
-CMD ["/usr/sbin/sshd", "-D", "-p", "4100"]
+
+#Dummy app just to get the container running with docker-compose.
+#You can then enter the container with command: docker exec -it <container ID> /bin/bash
+#WORKDIR /home/connextcms/myCMS
+COPY dummyapp.js dummyapp.js
+CMD ["node", "dummyapp.js"]
+
+#CMD ["/usr/sbin/sshd", "-D", "-p", "4100"]
 
