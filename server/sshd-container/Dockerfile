@@ -43,7 +43,7 @@ RUN adduser testuser sudo
 RUN echo testuser:password | chpasswd
 
 
-EXPOSE 5000-5999
+EXPOSE 6000-6999
 
 COPY finalsetup finalsetup
 COPY dummyapp.js dummyapp.js
