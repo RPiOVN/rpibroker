@@ -33,6 +33,7 @@ RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 #RUN npm install -g npm
+RUN npm install -g express
 
 #Create the user and add them to the sudo group.
 RUN useradd -ms /bin/bash testuser
