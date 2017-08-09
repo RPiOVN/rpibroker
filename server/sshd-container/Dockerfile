@@ -37,7 +37,7 @@ RUN npm install express
 
 #Create the user and add them to the sudo group.
 RUN useradd -ms /bin/bash sshuser
-RUN adduser sshuser sudo
+#RUN adduser sshuser sudo
 
 #Set password to 'password' change value below if you want a different password
 RUN echo sshuser:sshuserpassword | chpasswd
