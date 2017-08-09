@@ -20,7 +20,12 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-
+#Install Node and NPM
+RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt-get install -y nodejs
+RUN apt-get install -y build-essential
+#RUN npm install -g npm
 
 #Create the user and add them to the sudo group.
 RUN useradd -ms /bin/bash testuser
