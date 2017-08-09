@@ -1,0 +1,13 @@
+client-shell:
+  build: .
+  dockerfile: Dockerfile
+#  links:
+#    - mongodb
+  ports:
+    - "4000-4999:4000-4999"
+#  volumes:
+#    - ./theme:/home/connextcms/theme
+#    - ./plugins:/home/connextcms/plugins
+#    - ./public:/home/connextcms/public
+#  restart: always
+    
