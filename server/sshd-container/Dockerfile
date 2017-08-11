@@ -1,3 +1,6 @@
+#Copyright 2017 RPiOVN.org
+#Licensing Information: http://rpiovn.org/license 
+
 #Create a minimal Ubuntu shell running SSHD.
 #Adapted from this tutorial: https://docs.docker.com/engine/examples/running_ssh_service/#build-an-eg_sshd-image
 

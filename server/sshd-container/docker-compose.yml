@@ -1,3 +1,6 @@
+#Copyright 2017 RPiOVN.org
+#Licensing Information: http://rpiovn.org/license 
+
 sshd-container:
   build: .
   dockerfile: Dockerfile

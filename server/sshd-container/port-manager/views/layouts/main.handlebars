@@ -12,7 +12,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RPi-Tracker Control Panel</title>
+    <title>SSHD Port Control Tester</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,8 +20,7 @@
     <!-- <link rel="stylesheet" href="styles/screen.css"> -->
     <!-- endbuild -->
 
-    <link href='/styles/fonts/SourceSansPro.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/style.css">
     <!-- <link rel="stylesheet" href="/styles/toggle-switch.css"> -->
     
@@ -30,25 +29,21 @@
     <script src="/js/bootstrap-3.3.5.min.js"></script>
   </head>
   <body>
-      <!--[if lt IE 10]>
-          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
 
 
-      {{{ body }}}
+    {{{ body }}}
 
-      <!--
-      <footer>
-         Footer Content 
-      </footer>
-      -->
-
-      <!-- build:js(assets) scripts/scripts.js -->
-      <!-- <script src="bower_components/jquery/jquery.js"></script> -->
-      
-      <!-- endbuild -->
-
+    <!-- Hide the preloader after the page has loaded -->
+    <script type="text/javascript">
+      //Hide the preloader after everything finished loading and document is ready.
+      $(document).ready(function() {
+        $('#loader-wrapper').hide();
+      });
+    </script>
 
   </body>
 </html>

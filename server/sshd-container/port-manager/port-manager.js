@@ -1,3 +1,7 @@
+/*
+ * Copyright 2017 RPiOVN.org
+ * Licensing Information: http://rpiovn.org/license 
+ */
 var express = require('express');
 var requestHandlers = require("./requestHandlers.js");
 //var http = require('http'); //Used for GET and POST requests
