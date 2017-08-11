@@ -8,7 +8,7 @@ that device in the RPi Broker marketplace.
 
 
 # State of Development
-Update: **8/10/17**
+Update: **8/11/17**
 
 This project is brand new and is still in the very early stages of development. The good news is that the technology
 stack needed to turn the vision into reality has already been identified. It's simply a matter of connecting the pieces
@@ -32,6 +32,10 @@ are currently being developed.
 * The core technology of this project is [Reverse SSH](https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding.html). 
 A [Dockerfile](server/sshd-container/Dockerfile) 
 is currently being developed to act as an SSH router to connect renters to the devices.
+
+* The `server/` directory is formatted as a [site template](https://github.com/skagitpublishing/site-template-connextcms) 
+for [ConnextCMS](http://connextcms.com). This will contain the website files that will make up the marketplace and user
+dashboards (the web app).
 
 * Mockups have been created for the following views:
   * [Marketplace View](images/marketplace-mockup.JPG)
