@@ -1,6 +1,6 @@
 var async = require('async');
 var keystone = require('keystone');
-var sudo = require('sudo'); //Used to execut sudo level commands with spawn
+//var sudo = require('sudo'); //Used to execut sudo level commands with spawn
 
 
 var DeviceModel = keystone.list('DeviceModel');
@@ -111,7 +111,7 @@ exports.create = function(req, res) {
       res.apiResponse({
         newDevice: item2
       });
-
+/*
       //Add user to the system.
       var options = {
         cachePassword: true,
@@ -127,7 +127,7 @@ exports.create = function(req, res) {
       child.stderr.on('data', function (data) {
         console.log('stderr: ' + data);
       });
-      
+*/      
     });
     
     

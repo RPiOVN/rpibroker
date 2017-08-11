@@ -10,12 +10,16 @@ High level overview:
 # User Experience - Device Owner
 * Device owner creates an account and logs in.
 * Clicks an 'Add Device' button to add a device to their account. This takes them through a series of prompts.
-They give the device a name, describe the device stats, and recieve a registration hash.
+They give the device a name, describe the device, and recieve a registration hash.
 * They are directed to instructions for flashing the SD card with an image and running the client software.
-* The client software prompts for the hash then registers with the server. The client runs its own assesments of memory,
-drive space, processor, and internet speed and uploads this data to the server.
+* The *client software* is a Docker container that opens an SSHD port. It launches a node appliction that
+  reads the registration key/has from a file. The node application initializes by performing a series of benchmark
+  tests to determine memory, drive space, processor speed, and internet speed. It then registers with the server
+  and uploads this benchmark data.
 * A username and pasword for the client is Docker container is generated at this time.
-* The device then appears in the marketplace dashboard. Rental fees are deposited into the renters account, minus administration fees.
+* The device then appears in the owned devices view under the owners account. 
+* A button in the owned devices view can be clicked to add the device to the marketplace. 
+Rental fees are deposited into the renters account, minus administration fees.
 
 # View Specifications
 Below are specifications and links to wire frames for each of the views.
