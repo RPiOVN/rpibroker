@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script assumes that ConnextCMS is installed in the users home directory,
+#This script assumes that ConnextCMS is installed in the users home directory, 
 #aliased with the ~ symbol. Edit the directory paths below if this assumption is invalid.
 
 echo Preparing to copy into myCMS directory...
