@@ -22,3 +22,6 @@ cp keystone/templates/views/layouts/*.hbs ~/myCMS/templates/views/layouts/
 echo Copying public directory
 cp -r public ~/myCMS/
 
+#Copying public and private settings files
+cp publicsettings.js ~/myCMS/public/js
+cp privatesettings.js ~/myCMS/private/
