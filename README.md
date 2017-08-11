@@ -8,7 +8,7 @@ that device in the RPi Broker marketplace.
 
 
 # State of Development
-Update: **8/9/17**
+Update: **8/10/17**
 
 This project is brand new and is still in the very early stages of development. The good news is that the technology
 stack needed to turn the vision into reality has already been identified. It's simply a matter of connecting the pieces
@@ -18,6 +18,9 @@ If you are an experienced JavaScript programmer, we could use your help!
 We can reimburse developers with equity in future income.
 Check out the [RPi Broker Project Page](http://rpiovn.org/project/rpi-broker)
 for details on how to contribute.
+
+## Project Highlights
+Here's what has been accomplished so far:
 
 * A [High Level Specification Document](specifications/SPECIFICATION.md) has been created that discusses the
 technology stack and flow mechanics of how the marketplace will operate. 
@@ -29,3 +32,8 @@ are currently being developed.
 * The core technology of this project is [Reverse SSH](https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding.html). 
 A [Dockerfile](server/sshd-container/Dockerfile) 
 is currently being developed to act as an SSH router to connect renters to the devices.
+
+* Mockups have been created for the following views:
+  * [Marketplace View](images/marketplace-mockup.JPG)
+  * [Rental View](images/rental-mockup.JPG)
+  * [Owned Devices View](images/owned-devices-mockup.JPG)
