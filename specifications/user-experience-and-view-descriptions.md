@@ -11,12 +11,14 @@ High level overview:
 * Device owner creates an account and logs in.
 * Clicks an 'Add Device' button to add a device to their account. This takes them through a series of prompts.
 They give the device a name, describe the device, and recieve a registration hash.
+* A username and pasword for the client's Docker container is generated at this time.
 * They are directed to instructions for flashing the SD card with an image and running the client software.
-* The *client software* is a Docker container that opens an SSHD port. It launches a node appliction that
-  reads the registration key/has from a file. The node application initializes by performing a series of benchmark
-  tests to determine memory, drive space, processor speed, and internet speed. It then registers with the server
-  and uploads this benchmark data.
-* A username and pasword for the client is Docker container is generated at this time.
+* The *client software* is a node application that reads the registration key/has from a file then 
+retrieves login information from the server. The node app then launches a 
+Docker container that opens an SSHD port. 
+The node application initializes by performing a series of benchmark
+tests to determine memory, drive space, processor speed, and internet speed. It then registers with the server
+and uploads this benchmark data.
 * The device then appears in the owned devices view under the owners account. 
 * A button in the owned devices view can be clicked to add the device to the marketplace. 
 Rental fees are deposited into the renters account, minus administration fees.
