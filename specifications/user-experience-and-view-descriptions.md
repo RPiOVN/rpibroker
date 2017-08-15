@@ -13,9 +13,9 @@ High level overview:
 They give the device a name, describe the device, and recieve a registration hash.
 * A username and pasword for the client's Docker container is generated at this time.
 * They are directed to instructions for flashing the SD card with an image and running the client software.
-* The *client software* is a node application that reads the registration key/has from a file then 
-retrieves login information from the server. The node app then launches a 
-Docker container that opens an SSHD port. 
+* The *client software* is a node application that reads the registration key/hash from a file then 
+retrieves login information from the server. The node app then customized a Docker file and builds a 
+Docker container that opens an SSHD port with shell access. 
 The node application initializes by performing a series of benchmark
 tests to determine memory, drive space, processor speed, and internet speed. It then registers with the server
 and uploads this benchmark data.
