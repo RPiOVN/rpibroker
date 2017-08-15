@@ -45,7 +45,7 @@
         //logic for this page. Do the requirejs calls here instead of
         //a separate file so after a build there are only 2 HTTP
         //requests instead of three.
-        requirejs(['/js/cms_common'], function (common) {
+        requirejs(['/js/cms_common.js'], function (common) {
           requirejs(['/js/dependencies-round1.js'], function (common) {
             requirejs(['/js/dependencies-round2.js'], function (common) {
               requirejs(['/js/dependencies-round3.js'], function (common) {
