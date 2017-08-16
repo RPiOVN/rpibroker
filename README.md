@@ -3,8 +3,8 @@
 RPi Broker aspires to create a marketplace offering Virtal Private Servers (VPS), similar to 
 [Digital Ocean](http://digitalocean.com) or [Vultr](http://vultr.com). This would also be similar
 to co-location services like [Raspberry Pi Hosting](https://raspberry-hosting.com/en) or 
-[Mythic Beasts](https://www.mythic-beasts.com/order/rpi)
-Instead of using a data center,
+[Mythic Beasts](https://www.mythic-beasts.com/order/rpi).
+However, instead of using a data center,
 the marketplace would use an array of psudo-anonymous [Raspberry Pi](https://www.raspberrypi.org/) 
 or other IoT devices hosted by people participating in a marketplace. Anyone
 with an internet connection and a device capable of running [Docker](https://www.docker.com/) can rent
@@ -14,9 +14,10 @@ that device in the RPi Broker marketplace.
 While [the applications of such a network](https://raspberry-hosting.com/en/applications) are similar, 
 the RPi Broker marketplace will never have the speed or reliabilty of the commercial outfits linked above.
 Instead, the focus of RPi Broker is to create a decentralized network for censor-proof, anonymous web servers,
-capable of delivering website or web apps.
+capable of delivering websites or web apps.
 
-Imagine being able to spin up multiple copies of your server in multiple locations, all ten times faster than
+Imagine being able to spin up multiple copies of your server, in multiple locations, in a matter of seconds, 
+all hundreds of times faster than
 any government could censor them. And the servers can be paid for with Bitcoin or other cryptocurrency, so as
 long as you're carefull in how you obtain that cryptocurrency, you could create the servers anonymously, without
 any papertrail back to you. Due to a strongly encrypted Docker container, the people hosting the physical device
