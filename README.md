@@ -1,5 +1,5 @@
 # RPi Broker
-## What RPi Broker **IS**
+## What is RPi Broker?
 RPi Broker aspires to create a marketplace offering Virtal Private Servers (VPS), similar to 
 [Digital Ocean](http://digitalocean.com) or [Vultr](http://vultr.com). This would also be similar
 to co-location services like [Raspberry Pi Hosting](https://raspberry-hosting.com/en) or 
@@ -10,7 +10,6 @@ or other IoT devices hosted by people participating in a marketplace. Anyone
 with an internet connection and a device capable of running [Docker](https://www.docker.com/) can rent
 that device in the RPi Broker marketplace.
 
-## What RPi Broker **IS NOT**
 While [the applications of such a network](https://raspberry-hosting.com/en/applications) are similar, 
 the RPi Broker marketplace will never have the speed or reliabilty of the commercial outfits linked above.
 Instead, the focus of RPi Broker is to create a decentralized network for censor-proof, anonymous web servers,
