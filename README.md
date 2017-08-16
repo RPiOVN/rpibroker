@@ -11,13 +11,18 @@ with an internet connection and a device capable of running [Docker](https://www
 that device in the RPi Broker marketplace.
 
 ## What RPi Broker **IS NOT**
-The RPi Broker marketplace will never have the speed or reliabilty of the commercial outfits linked above.
+While [the applications of such a network](https://raspberry-hosting.com/en/applications) are similar, 
+the RPi Broker marketplace will never have the speed or reliabilty of the commercial outfits linked above.
 Instead, the focus of RPi Broker is to create a decentralized network for censor-proof, anonymous web servers,
 capable of delivering website or web apps.
+
 Imagine being able to spin up multiple copies of your server in multiple locations, all ten times faster than
 any government could censor them. And the servers can be paid for with Bitcoin or other cryptocurrency, so as
 long as you're carefull in how you obtain that cryptocurrency, you could create the servers anonymously, without
-any papertrail back to you. That's the focus of the RPi Broker network.
+any papertrail back to you. Due to a strongly encrypted Docker container, the people hosting the physical device
+have no way to know what is being served or ability to access the files on the device.
+That's the focus of the RPi Broker network. In this way, RPi Broker is censhorship-fighting
+software similar to, but very different from, [TOR](https://www.torproject.org/).
 
 # State of Development
 Update: **8/11/17**
