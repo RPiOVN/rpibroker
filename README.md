@@ -19,7 +19,7 @@ Imagine being able to spin up multiple copies of your server, in multiple locati
 all hundreds of times faster than
 any government could censor them. And the servers can be paid for with Bitcoin or other cryptocurrency, so as
 long as you're carefull in how you obtain that cryptocurrency, you could create the servers anonymously, without
-any papertrail back to you. Due to a strongly encrypted Docker container, the people hosting the physical device
+any paper trail back to you. Due to a strongly encrypted Docker container, the people hosting the physical device
 have no way to know what is being served or ability to access the files on the device.
 That's the focus of the RPi Broker network. In this way, RPi Broker is censhorship-fighting
 software similar to, but very different from, [TOR](https://www.torproject.org/).
