@@ -47,8 +47,10 @@ RUN echo testuser:password | chpasswd
 #EXPOSE 22
 #CMD ["/usr/sbin/sshd", "-D"]
 EXPOSE 6101
+EXPOSE 3100
 
 COPY dummyapp.js dummyapp.js
 COPY finalsetup finalsetup
+RUN chmod 775 finalsetup
 
 ENTRYPOINT ["./finalsetup", "node", "dummyapp.js"]
