@@ -5,7 +5,7 @@
 #Adapted from this tutorial: https://docs.docker.com/engine/examples/running_ssh_service/#build-an-eg_sshd-image
 
 #FROM ubuntu:17.04
-FROM docker pull resin/rpi-raspbian
+FROM resin/rpi-raspbian
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 #Install dependant packages
