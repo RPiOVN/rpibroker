@@ -10,7 +10,7 @@ MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 #Install dependant packages
 #update gets run when node is downloaded.
-#RUN apt-get update 
+RUN apt-get update 
 #RUN apt-get install -y openssh-server
 #RUN apt-get install -y sudo
 RUN apt-get install nano
