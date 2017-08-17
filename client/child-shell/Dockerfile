@@ -13,6 +13,7 @@ MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 #RUN apt-get update 
 #RUN apt-get install -y openssh-server
 #RUN apt-get install -y sudo
+RUN apt-get install nano
 
 #Configure SSHD
 #RUN mkdir /var/run/sshd
@@ -44,6 +45,7 @@ RUN echo testuser:password | chpasswd
 
 #EXPOSE 22
 #CMD ["/usr/sbin/sshd", "-D"]
+EXPOSE 6101
 
 COPY dummyapp.js dummyapp.js
 COPY finalsetup finalsetup
