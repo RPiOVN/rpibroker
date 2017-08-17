@@ -11,20 +11,21 @@ MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 #Install dependant packages
 #update gets run when node is downloaded.
 RUN apt-get update 
-#RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server
 #RUN apt-get install -y sudo
 RUN apt-get install nano
+RUN apt-get install ssh
 
 #Configure SSHD
-#RUN mkdir /var/run/sshd
+RUN mkdir /var/run/sshd
 #RUN echo 'root:rootpassword' | chpasswd
 #RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
-#RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
-#ENV NOTVISIBLE "in users profile"
-#RUN echo "export VISIBLE=now" >> /etc/profile
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
 
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_4.x -o nodesource_setup.sh
