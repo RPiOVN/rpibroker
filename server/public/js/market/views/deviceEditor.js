@@ -66,6 +66,9 @@ define([
       
       $.post('/api/devicePublicData/create', obj, function(data) {
         debugger;
+        
+        $('#deviceEditorView').hide();
+        global.devicesView.render();
       })
       .fail( function(jqxhr, textStatus, error) {
         //This is the error handler.

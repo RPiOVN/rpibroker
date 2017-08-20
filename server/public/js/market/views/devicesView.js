@@ -33,6 +33,8 @@ define([
       
       $('#devicesView').show();
       
+      this.populateDevices();
+      
 			return this;
 		},
     
@@ -52,6 +54,27 @@ define([
     //This function is called when the user clicks the 'Delete' button associated with a device.
     deleteDevice: function() {
       debugger;
+    },
+    
+    //This function is called by render(). It populates the DOM by cloning the scaffold and populating it with device data
+    //from the database.
+    populateDevices() {
+      debugger;
+      
+      $.get('/api/devicePublicData/list', '', function(data) {
+        debugger;
+        
+        var deviceList = data.collection;
+      })
+      .fail( function(jqxhr, textStatus, error) {
+        //This is the error handler.
+        debugger;
+
+        log.push('Error while trying to list device public data in devicesView.js/populateDevices().');
+        //sendLog();
+        console.error('Communication error with server while execute devicesView.js/populateDevices()');
+        
+      });
     }
     
 	});
