@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var DevicePublicModel = new keystone.List('DevicePublicModel');
 
-DeviceModel.add({
+DevicePublicModel.add({
 	rentStartDate: { type: String },
   rentStopDate: { type: String },
   rentHourlyRate: { type: String },
