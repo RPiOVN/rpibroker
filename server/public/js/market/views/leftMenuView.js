@@ -58,10 +58,10 @@ define([
       
       //Hide old Views and show new one.
       $('#dashboardView').show();
-      $('#logWorkView').hide();
-      $('#workReportView').hide();
-      $('#projectView').hide();
       $('#editProfileView').hide();
+      $('#marketView').hide();
+      $('#rentalView').hide();
+      $('#devicesView').hide();
       
       
       //Remove the 'active' class from the menu item, unless it's a treeview menu item.
@@ -82,6 +82,8 @@ define([
       $('#dashboardView').hide();
       $('#editProfileView').show();
       $('#marketView').hide();
+      $('#rentalView').hide();
+      $('#devicesView').hide();
       
       $('#app-location').text('Edit Profile');
       
@@ -102,6 +104,8 @@ define([
       $('#dashboardView').hide();
       $('#editProfileView').hide();
       $('#marketView').show();
+      $('#rentalView').hide();
+      $('#devicesView').hide();
       
       $('#app-location').text('Marketplace');
       
@@ -123,6 +127,7 @@ define([
       $('#editProfileView').hide();
       $('#marketView').hide();
       $('#rentalView').show();
+      $('#devicesView').hide();
       
       $('#app-location').text('Rentals');
       
