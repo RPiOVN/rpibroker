@@ -44,7 +44,7 @@ define([
     loadDeviceEditor: function() {
       debugger;
       
-      $('#deviceEditor').slideDown();
+      $('#deviceEditorView').slideDown();
     },
     
     addDevice: function() {
