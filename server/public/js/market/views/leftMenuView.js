@@ -24,10 +24,11 @@ define([
 			//'keydown .edit':	'revertOnEscape',
 			//'blur .edit':		'close'
       'click #dashboardLink': 'showDashboard',
-      'click #logWorkLink': 'showLogWork',
-      'click #workReportLink': 'showWorkReport',
-      'click #viewProjects': 'showProjectView',
-      'click #editProfileLink': 'showEditProfile'
+      //'click #logWorkLink': 'showLogWork',
+      //'click #workReportLink': 'showWorkReport',
+      //'click #viewProjects': 'showProjectView',
+      'click #editProfileLink': 'showEditProfile',
+      'click #marketLink': 'showMarket'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since there's
@@ -153,6 +154,27 @@ define([
       $('#editProfileLink').parent().addClass('active');
       
       global.editProfileView.render();
+    },
+    
+    showMarket: function() {
+      $('#dashboardView').hide();
+      $('#logWorkView').hide();
+      $('#workReportView').hide();
+      $('#projectView').hide();
+      $('#editProfileView').hide();
+      $('#marketView').show();
+      
+      $('#app-location').text('Marketplace');
+      
+      //Show Data Files Help
+      //global.helpView.showProfileHelp();
+      
+      //Remove the 'active' class from the menu item, unless it's a treeview menu item.
+      //(treeview) menu items will remove their active class in their click event.
+      if( !$('.sidebar-menu').find('.active').hasClass('treeview') )
+        $('.sidebar-menu').find('.active').removeClass('active');      
+      //Switch the 'active' class to the selected menu item
+      $('#marketLink').parent().addClass('active');
     },
     
     //This function copied from adminlte.js. Moved here as it controls the animation of this view

@@ -6,27 +6,29 @@ define([
   //'js.cookie',
 	'../../js/market/views/leftMenuView.js',
   '../../js/market/views/dashboardView.js',
-  '../../js/market/views/logWorkView.js',
-  '../../js/market/model/logWorkModel.js',
-  '../../js/market/model/logWorkCollection.js',
-  '../../js/market/views/WorkReportView.js',
-  '../../js/market/model/projectModel.js',
-  '../../js/market/model/projectCollection.js',
+  //'../../js/market/views/logWorkView.js',
+  //'../../js/market/model/logWorkModel.js',
+  //'../../js/market/model/logWorkCollection.js',
+  //'../../js/market/views/WorkReportView.js',
+  //'../../js/market/model/projectModel.js',
+  //'../../js/market/model/projectCollection.js',
   '../../js/market/model/userModel.js',
   '../../js/market/model/userCollection.js',
-  '../../js/market/views/projectView.js',
+  //'../../js/market/views/projectView.js',
   '../../js/app/views/modalView.js',
   '../../js/market/views/editProfile.js',
   //'/js/lib/bootstrap-table.js',
   'adminlte',
-  'logs'
+  'logs',
+  '../../js/market/views/marketplaceView.js'
 //], function ($, _, Backbone, Bootstrap, Cookie,
 ], function (_, Backbone, //Bootstrap,
               LeftMenuView, DashboardView, 
-              LogWorkView, LogWorkModel, LogWorkCollection, WorkReportView, ProjectModel, ProjectCollection, UserModel, UserCollection,
-              ProjectView,
+              UserModel, UserCollection,
               ModalView, EditProfileView,
-              AdminLTE, Logs) {
+              AdminLTE, Logs,
+              MarketView
+             ) {
 
   
   //Global Variables
@@ -48,7 +50,7 @@ define([
   
   detectBrowser(); //Log the current browser and OS being used.
   
-  
+  /*
   if(global.logWorkCollection == undefined) {
     global.logWorkModel = new LogWorkModel();
     
@@ -62,6 +64,7 @@ define([
     global.projectCollection = new ProjectCollection();
     global.projectCollection.fetch();
   }
+  */
   
   if(global.userCollection == undefined) {
     global.userModel = new UserModel();
@@ -80,9 +83,11 @@ define([
   //debugger;
   global.dashboardView.render();
   
-  global.logWorkView = new LogWorkView();
-  global.workReportView = new WorkReportView();
-  global.projectView = new ProjectView();
+  //global.logWorkView = new LogWorkView();
+  //global.workReportView = new WorkReportView();
+  //global.projectView = new ProjectView();
+  
+  global.marketView = new MarketView();
   
   //Create the modal and render the view.
   global.modalView = new ModalView();
