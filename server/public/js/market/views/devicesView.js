@@ -18,7 +18,8 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-      'click #addNewDeviceBtn': 'loadDeviceEditor'
+      'click #addNewDeviceBtn': 'loadDeviceEditor',
+      'click .deviceDelete': 'deleteDevice'
 		},
 
 		initialize: function () {
@@ -46,6 +47,11 @@ define([
       //debugger;
       
       global.deviceEditorView.render();
+    },
+    
+    //This function is called when the user clicks the 'Delete' button associated with a device.
+    deleteDevice: function() {
+      debugger;
     }
     
 	});
