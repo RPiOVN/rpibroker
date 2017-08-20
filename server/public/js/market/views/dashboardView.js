@@ -19,7 +19,7 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-      'click #addNewDeviceBtn': 'loadDeviceEditor'
+      
 		},
 
 		initialize: function () {
@@ -42,9 +42,7 @@ define([
       global.modalView.openModal();
     },
     
-    loadDeviceEditor: function() {
-      debugger;
-    }
+    
     
 	});
 
