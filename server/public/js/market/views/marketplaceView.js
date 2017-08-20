@@ -9,7 +9,7 @@ define([
 ], function ($, _, Backbone, MarketTemplate, Chart) {
 	'use strict';
 
-	var DashboardView = Backbone.View.extend({
+	var MarketView = Backbone.View.extend({
 
 		tagName:  'div',
     
