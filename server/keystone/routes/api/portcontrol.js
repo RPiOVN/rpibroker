@@ -3,7 +3,8 @@ var keystone = require('keystone');
 //var sudo = require('sudo'); //Used to execut sudo level commands with spawn
 
 
-var DeviceModel = keystone.list('DeviceModel');
+var DevicePrivateModel = keystone.list('DevicePrivateModel');
+var DevicePublicModel = keystone.list('DevicePublicModel');
 var PortsUsedModel = keystone.list('PortsUsedModel');
 
 /**

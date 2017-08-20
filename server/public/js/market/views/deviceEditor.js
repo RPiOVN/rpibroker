@@ -59,7 +59,23 @@ define([
         return;
       }
       
+      var obj = {};
+      obj.deviceName = deviceName;
+      obj.deviceDesc = deviceDesc;
       
+      $.post('/api/devicePublicData/create', obj, function(data) {
+        debugger;
+      })
+      .fail( function(jqxhr, textStatus, error) {
+        //This is the error handler.
+        debugger;
+        
+
+        log.push('Error while trying to create new devicePublicModel in deviceEditor.js/addDevice().');
+        //sendLog();
+        console.error('Communication error with server while execute deviceEditor.js/addDevice()');
+        
+      });
     }
     
 	});
