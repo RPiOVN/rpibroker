@@ -84,7 +84,7 @@ define([
         //Create a line item for each device associated with this user
         for(var i=0; i < myDevices.length; i++) {
           var thisDevice = myDevices[i];
-          var thisRow = this.$el.find('.deviceScaffold').clone();
+          var thisRow = global.devicesView.$el.find('.deviceScaffold').clone();
           
           thisRow.removeClass('deviceScaffold');
           
@@ -92,7 +92,7 @@ define([
           thisRow.find('.deviceName').text(thisDevice.deviceName);
           thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
           
-          this.$el.find('#deviceList').append(thisRow);
+          global.devicesView.$el.find('#deviceList').append(thisRow);
           thisRow.show();
         }
         
