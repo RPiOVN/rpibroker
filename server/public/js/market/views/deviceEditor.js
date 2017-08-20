@@ -18,7 +18,7 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-      
+      'click #submitButton', 'addDevice'
 		},
 
 		initialize: function () {
@@ -44,7 +44,22 @@ define([
     loadDeviceEditor: function() {
       debugger;
       
-      $('#deviceEditor').show();
+      $('#deviceEditor').slideDown();
+    },
+    
+    addDevice: function() {
+      debugger;
+      
+      var deviceName = this.$el.find('#deviceName').val();
+      var deviceDesc = this.$el.find('#deviceDescription').val();
+      
+      //Error handling
+      if( (deviceName == "") || (deviceDesc == "") ) {
+        global.modalView.errorModal('Please enter a name and description for the device.');
+        return;
+      }
+      
+      
     }
     
 	});

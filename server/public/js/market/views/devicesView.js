@@ -41,8 +41,9 @@ define([
       global.modalView.openModal();
     },
     
+    //Load the device editor. This function is called when the user clicks the '+Add New Device' button.
     loadDeviceEditor: function() {
-      debugger;
+      //debugger;
       
       global.deviceEditorView.render();
     }
