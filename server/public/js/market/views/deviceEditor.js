@@ -18,7 +18,7 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-      'click #submitButton', 'addDevice'
+      'click #submitButton': 'addDevice'
 		},
 
 		initialize: function () {
