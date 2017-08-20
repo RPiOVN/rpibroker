@@ -44,7 +44,7 @@ define([
     loadDeviceEditor: function() {
       debugger;
       
-      global.deviceEditor.render();
+      global.deviceEditorView.render();
     }
     
 	});
