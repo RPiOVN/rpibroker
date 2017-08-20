@@ -65,6 +65,39 @@ define([
         debugger;
         
         var deviceList = data.collection;
+        var myDevices = [];
+        var myUserId = userdata._id;
+        
+        //Loop through all the devices and collect the ones that belong to this user.
+        for(var i=0; i < deviceList.length; i++) {
+          var thisDevice = deviceList[i];
+          
+          if(thisDevice._id == myUserId) {
+            myDevices.push(thisDevice);
+          }
+        }
+        
+        //Exit if there are no devices
+        if(myDevices.length == 0)
+          return;
+        
+        //Create a line item for each device associated with this user
+        for(var i=0; i < myDevices.length; i++) {
+          var thisDevice = myDevices[i];
+          var thisRow = this.$el.find('.deviceScaffold').clone();
+          
+          thisRow.removeClass('deviceScaffold');
+          
+          thisRow.find('.deviceId').text(thisDevice._id);
+          thisRow.find('.deviceName').text(thisDevice.deviceName);
+          thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
+          
+          this.$el.find('#deviceList').append(thisRow);
+          thisRow.show();
+        }
+        
+        
+        
       })
       .fail( function(jqxhr, textStatus, error) {
         //This is the error handler.
