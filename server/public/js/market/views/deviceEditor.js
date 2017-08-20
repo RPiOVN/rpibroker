@@ -62,6 +62,7 @@ define([
       var obj = {};
       obj.deviceName = deviceName;
       obj.deviceDesc = deviceDesc;
+      obj.ownerUser = userdata._id;
       
       $.post('/api/devicePublicData/create', obj, function(data) {
         debugger;
