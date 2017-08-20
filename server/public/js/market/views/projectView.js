@@ -4,7 +4,7 @@ define([
 	'jQuery-2.1.4.min',
 	'underscore_1.3.3',
 	'backbone_0.9.2',  
-  'text!../../../js/logwork/templates/projects.html',
+  'text!../../../js/market/templates/projects.html',
   'Chart.2.3.0'
 ], function ($, _, Backbone, ProjectTemplate, Chart) {
 	'use strict';

@@ -15,7 +15,7 @@ define([
   '/js/lib/tableExport.js',
   '/js/lib/jquery.base64.js',
 
-  'text!../../../js/logwork/templates/WorkReport.html',
+  'text!../../../js/market/templates/WorkReport.html',
   '/js/lib/bootstrap-table-export.js',
 ], function ($, _, Backbone, 
               TableExport, jQueryBase64,

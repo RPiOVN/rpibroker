@@ -5,7 +5,7 @@ define([
 	'underscore_1.3.3',
 	'backbone_0.9.2',  
   'bootstrap-datepicker.min',
-  'text!../../../js/logwork/templates/logWork.html',
+  'text!../../../js/market/templates/logWork.html',
 ], function ($, _, Backbone, Datepicker, LogWorkTemplate) {
 	'use strict';
 
@@ -167,7 +167,7 @@ define([
         //New log work record.
         if(this.selectedRecord == undefined) {
 
-          $.post('/api/logwork/create', this.model.attributes, function(data) {
+          $.post('/api/market/create', this.model.attributes, function(data) {
             //debugger;
             console.log('Data created successfully!');
 
@@ -287,7 +287,7 @@ define([
           this.model.set('_id', this.selectedRecord);
 
           //Post to an existing record.
-          $.post('/api/logwork/'+this.model.id+'/update', this.model.attributes, function(data) {
+          $.post('/api/market/'+this.model.id+'/update', this.model.attributes, function(data) {
             //debugger;
 
             var logWorkId = data.loggedwork._id; //The ID of this newly created logWork model.

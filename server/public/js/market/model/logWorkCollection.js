@@ -46,7 +46,7 @@ define([
       //  debugger;
       //});
 
-      this.url = '/api/logwork/list/all',
+      this.url = '/api/market/list/all',
       //this.url = '/api/logwork/list/last50',
       
       this.on('add', function() {

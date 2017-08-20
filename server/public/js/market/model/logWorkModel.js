@@ -25,7 +25,7 @@ define([
       //debugger;
 
       //this.url = 'http://'+global.serverIp+':'+global.serverPort+'/api/logwork/'+this.id+'/update';
-      this.url = '/api/logwork/'+this.id+'/update';
+      this.url = '/api/market/'+this.id+'/update';
     },
 
     defaults: {
