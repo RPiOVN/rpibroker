@@ -4,17 +4,17 @@ define([
 	'jQuery-2.1.4.min',
 	'underscore_1.3.3',
 	'backbone_0.9.2',  
-  'text!../../../js/market/templates/marketplace.html'
-], function ($, _, Backbone, MarketTemplate) {
+  'text!../../../js/market/templates/rental.html'
+], function ($, _, Backbone, RentalTemplate) {
 	'use strict';
 
-	var MarketView = Backbone.View.extend({
+	var RentalView = Backbone.View.extend({
 
 		tagName:  'div',
     
-    el: '#marketView', 
+    el: '#rentalView', 
 
-		template: _.template(MarketTemplate),
+		template: _.template(RentalTemplate),
 
 		// The DOM events specific to an item.
 		events: {
@@ -30,7 +30,7 @@ define([
       
       this.$el.html(this.template);
       
-      $('#marketView').show();
+      $('#rentalView').show();
       
 			return this;
 		},
@@ -44,5 +44,5 @@ define([
 	});
 
   //debugger;
-	return MarketView;
+	return RentalView;
 });
