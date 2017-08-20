@@ -21,14 +21,15 @@ define([
   'adminlte',
   'logs',
   '../../js/market/views/marketplaceView.js',
-  '../../js/market/views/rentalView.js'
+  '../../js/market/views/rentalView.js',
+  '../../js/market/views/devicesView.js',
 //], function ($, _, Backbone, Bootstrap, Cookie,
 ], function (_, Backbone, //Bootstrap,
               LeftMenuView, DashboardView, 
               UserModel, UserCollection,
               ModalView, EditProfileView,
               AdminLTE, Logs,
-              MarketView, RentalView
+              MarketView, RentalView, DevicesView
              ) {
 
   
@@ -90,6 +91,7 @@ define([
   
   global.marketView = new MarketView();
   global.rentalView = new RentalView();
+  global.devicesView = new DevicesView();
   
   //Create the modal and render the view.
   global.modalView = new ModalView();

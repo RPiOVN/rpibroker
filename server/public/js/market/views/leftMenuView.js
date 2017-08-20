@@ -29,7 +29,8 @@ define([
       //'click #viewProjects': 'showProjectView',
       'click #editProfileLink': 'showEditProfile',
       'click #marketLink': 'showMarket',
-      'click #rentalLink': 'showRental'
+      'click #rentalLink': 'showRental',
+      'click #devicesLink': 'showDevices'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since there's
@@ -136,6 +137,28 @@ define([
       $('#rentalLink').parent().addClass('active');
       
       global.rentalView.render();
+    },
+    
+    showDevices: function() {
+      $('#dashboardView').hide();
+      $('#editProfileView').hide();
+      $('#marketView').hide();
+      $('#rentalView').hide();
+      $('#devicesView').show();
+      
+      $('#app-location').text('Owned Devices');
+      
+      //Show Data Files Help
+      //global.helpView.showProfileHelp();
+      
+      //Remove the 'active' class from the menu item, unless it's a treeview menu item.
+      //(treeview) menu items will remove their active class in their click event.
+      if( !$('.sidebar-menu').find('.active').hasClass('treeview') )
+        $('.sidebar-menu').find('.active').removeClass('active');      
+      //Switch the 'active' class to the selected menu item
+      $('#devicesLink').parent().addClass('active');
+      
+      global.devicesView.render();
     },
     
     //This function copied from adminlte.js. Moved here as it controls the animation of this view
