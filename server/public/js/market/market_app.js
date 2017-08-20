@@ -20,14 +20,15 @@ define([
   //'/js/lib/bootstrap-table.js',
   'adminlte',
   'logs',
-  '../../js/market/views/marketplaceView.js'
+  '../../js/market/views/marketplaceView.js',
+  '../../js/market/views/rentalView.js'
 //], function ($, _, Backbone, Bootstrap, Cookie,
 ], function (_, Backbone, //Bootstrap,
               LeftMenuView, DashboardView, 
               UserModel, UserCollection,
               ModalView, EditProfileView,
               AdminLTE, Logs,
-              MarketView
+              MarketView, RentalView
              ) {
 
   
@@ -88,6 +89,7 @@ define([
   //global.projectView = new ProjectView();
   
   global.marketView = new MarketView();
+  global.rentalView = new RentalView();
   
   //Create the modal and render the view.
   global.modalView = new ModalView();
