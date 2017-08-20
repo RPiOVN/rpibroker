@@ -95,44 +95,7 @@ define([
       global.logWorkView.render();
     },
     
-    showWorkReport: function() {
-      //debugger;
-      $('#dashboardView').hide();
-      $('#logWorkView').hide();
-      $('#workReportView').show();
-      $('#projectView').hide();
-      $('#editProfileView').hide();
-      
-      $('#app-location').text('Work Reports');
-      
-      //Remove the 'active' class from the menu item, unless it's a treeview menu item.
-      //(treeview) menu items will remove their active class in their click event.
-      if( !$('.sidebar-menu').find('.active').hasClass('treeview') )
-        $('.sidebar-menu').find('.active').removeClass('active');
-      //Switch the 'active' class to the selected menu item
-      $('#workReportLink').parent().addClass('active');
-      
-      global.workReportView.render();
-    },
     
-    showProjectView: function() {
-      $('#dashboardView').hide();
-      $('#logWorkView').hide();
-      $('#workReportView').hide();
-      $('#projectView').show();
-      $('#editProfileView').hide();
-      
-      $('#app-location').text('Project Summary');
-      
-      //Remove the 'active' class from the menu item, unless it's a treeview menu item.
-      //(treeview) menu items will remove their active class in their click event.
-      if( !$('.sidebar-menu').find('.active').hasClass('treeview') )
-        $('.sidebar-menu').find('.active').removeClass('active');
-      //Switch the 'active' class to the selected menu item
-      $('#viewProjects').parent().addClass('active');
-      
-      global.projectView.render();
-    },
     
     showEditProfile: function() {
       $('#dashboardView').hide();
@@ -175,6 +138,8 @@ define([
         $('.sidebar-menu').find('.active').removeClass('active');      
       //Switch the 'active' class to the selected menu item
       $('#marketLink').parent().addClass('active');
+      
+      global.marketView.render();
     },
     
     //This function copied from adminlte.js. Moved here as it controls the animation of this view
