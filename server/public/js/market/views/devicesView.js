@@ -72,7 +72,7 @@ define([
         for(var i=0; i < deviceList.length; i++) {
           var thisDevice = deviceList[i];
           
-          if(thisDevice._id == myUserId) {
+          if(thisDevice.ownerUser == myUserId) {
             myDevices.push(thisDevice);
           }
         }
