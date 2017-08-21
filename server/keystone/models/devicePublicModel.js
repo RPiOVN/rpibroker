@@ -21,7 +21,8 @@ DevicePublicModel.add({
   memory: { type: String },
   diskSpace:  { type: String },
   processor:  { type: String },
-  speedTestResults:  { type: String }
+  internetSpeed:  { type: String },
+  checkinTimeStamp: { type: String }
 });
 
 DevicePublicModel.register();

@@ -14,7 +14,8 @@ var express = require('express');
 //var requestHandlers = require("./requestHandlers.js");
 //var gpsd = require('./lib/gpsd');
 var fs = require('fs');
-//var http = require('http'); //Used for GET and POST requests
+var http = require('http'); //Used for GET and POST requests
+var request = require('request'); //Used for CURL requests.
 //var Promise = require('node-promise');
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
@@ -287,3 +288,41 @@ global.saveServerSettings = function(thisServerSettings) {
 }
 */
 // END GLOBAL UTITLITY FUNCTIONS
+
+//Simulate benchmark tests with dummy data.
+var obj = {};
+obj.memory = "Fake Test Data";
+obj.diskSpace = "Fake Test Data";
+obj.processor = "Fake Test Data";
+obj.internetSpeed = "Fake Test Data";
+var now = new Date();
+obj.checkinTimeStamp = now.toISOString();
+
+
+//Send the IP addresses to the server.
+request.post({url: 'http://localhost:3000/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
+	form: obj},    
+	function (error, response, body) {
+
+	try {
+	
+    //If the request was successfull.
+    if (!error && response.statusCode == 200) {
+      debugger;
+
+      //Convert the data from a string into a JSON object.
+      var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
+
+      
+
+    } else {
+      debugger;
+
+      console.log('Server responded with error when trying to register the device.');
+    }
+	} catch(err) {
+		console.log('rpiBroker.js exiting with error:'+err);
+	}
+
+});
+
