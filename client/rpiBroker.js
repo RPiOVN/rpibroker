@@ -299,21 +299,24 @@ var now = new Date();
 obj.checkinTimeStamp = now.toISOString();
 
 
-//Send the IP addresses to the server.
+//Register with the server by sending the benchmark data.
 request.post({url: 'http://localhost:3000/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
 	form: obj},    
 	function (error, response, body) {
 
 	try {
 	
-    //If the request was successfull.
+    //If the request was successfull, the server will respond with username, password, and port to be
+    //used to build the Docker file.
     if (!error && response.statusCode == 200) {
       debugger;
 
       //Convert the data from a string into a JSON object.
       var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
 
-      
+      console.log('Username: '+data.username);
+      console.log('Password: '+data.password);
+      console.log('Port: '+data.port);
 
     } else {
       debugger;
