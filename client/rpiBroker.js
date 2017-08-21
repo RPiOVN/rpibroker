@@ -312,7 +312,7 @@ request.post({url: 'http://localhost:3000/api/devicePublicData/'+deviceGUID.devi
       debugger;
 
       //Convert the data from a string into a JSON object.
-      var data = JSON.parse(body.clientData); //Convert the returned JSON to a JSON string.
+      var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
 
       console.log('Username: '+data.username);
       console.log('Password: '+data.password);
