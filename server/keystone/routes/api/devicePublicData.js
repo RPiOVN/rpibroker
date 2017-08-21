@@ -162,6 +162,8 @@ exports.register = function(req, res) {
 		
 		var data = (req.method == 'POST') ? req.body : req.query;
 		
+    debugger;
+    
 		item.getUpdateHandler(req).process(data, function(err) {
 			
 			if (err) return res.apiError('create error', err);
