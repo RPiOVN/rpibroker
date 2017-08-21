@@ -42,13 +42,13 @@ define([
     },
     
     loadDeviceEditor: function() {
-      debugger;
+      //debugger;
       
       $('#deviceEditorView').slideDown();
     },
     
     addDevice: function() {
-      debugger;
+      //debugger;
       
       var deviceName = this.$el.find('#deviceName').val();
       var deviceDesc = this.$el.find('#deviceDescription').val();
@@ -65,7 +65,7 @@ define([
       obj.ownerUser = userdata._id;
       
       $.post('/api/devicePublicData/create', obj, function(data) {
-        debugger;
+        //debugger;
         
         $('#deviceEditorView').hide();
         global.devicesView.render();

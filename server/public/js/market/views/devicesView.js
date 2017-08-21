@@ -59,10 +59,10 @@ define([
     //This function is called by render(). It populates the DOM by cloning the scaffold and populating it with device data
     //from the database.
     populateDevices() {
-      debugger;
+      //debugger;
       
       $.get('/api/devicePublicData/list', '', function(data) {
-        debugger;
+        //debugger;
         
         var deviceList = data.collection;
         var myDevices = [];
