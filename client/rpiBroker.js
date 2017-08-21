@@ -318,7 +318,7 @@ request.post({url: 'http://localhost:3000/api/devicePublicData/'+deviceGUID.devi
     } else {
       debugger;
 
-      console.log('Server responded with error when trying to register the device.');
+      console.error('Server responded with error when trying to register the device: ',error);
     }
 	} catch(err) {
 		console.log('rpiBroker.js exiting with error:'+err);
