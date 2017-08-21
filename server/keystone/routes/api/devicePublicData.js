@@ -164,6 +164,31 @@ exports.register = function(req, res) {
 		
     debugger;
     
+    try {
+    
+      item.set('memory', data.memory);
+      item.set('diskSpace', data.diskSpace);
+      item.set('processor', data.processor);
+      item.set('internetSpeed', data.internetSpeed);
+      item.set('checkinTimeStamp', data.checkinTimeStamp);
+      item.save();
+      
+      var obj = {};
+      obj.username = 'test123';
+      obj.password = 'password123';
+      obj.port = 'port123';
+      
+      res.apiResponse({
+        clientData: obj
+      })
+      
+    } catch(err) {
+      debugger;
+      
+      console.error('Error while trying to process registration data: ', err);
+    }
+    
+    /*
 		item.getUpdateHandler(req).process(data, function(err) {
 			
 			if (err) return res.apiError('create error', err);
@@ -173,6 +198,7 @@ exports.register = function(req, res) {
 			});
 			
 		});
+    */
 		
 	});
 }
