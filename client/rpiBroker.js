@@ -32,6 +32,7 @@ var Diagnostics = require('./lib/diagnostics.js');
 
 try {
   var deviceGUID = require('./deviceGUID.json'); 
+  console.log('Registering device ID '+deviceGUID.deviceId);
 } catch(err) {
   console.error('Could not open the deviceGUID.json file!', err);
   process.exit(1);
