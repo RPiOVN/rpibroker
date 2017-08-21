@@ -173,6 +173,11 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
+      //Generate username, password, and port
+      
+      //Save data to the devicePrivateModel
+      
+      //Return the data to the client.
       var obj = {};
       obj.username = 'test123';
       obj.password = 'password123';
