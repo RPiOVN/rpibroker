@@ -23,6 +23,8 @@ module.exports = function(app) {
   app.all('/api/devicePublicData/create', keystone.middleware.api, routes.api.devicePublicData.create);
   app.all('/api/devicePublicData/:id/update', keystone.middleware.api, routes.api.devicePublicData.update);
 	app.get('/api/devicePublicData/:id/remove', keystone.middleware.api, routes.api.devicePublicData.remove);
+  app.all('/api/devicePublicData/:id/register', keystone.middleware.api, routes.api.devicePublicData.register);
+  
   
   app.get('/api/devicePrivateData/list', keystone.middleware.api, routes.api.devicePrivateData.list);
   app.all('/api/devicePrivateData/create', keystone.middleware.api, routes.api.devicePrivateData.create);
