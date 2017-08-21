@@ -33,7 +33,7 @@ var Diagnostics = require('./lib/diagnostics.js');
 try {
   var deviceGUID = require('./assets/deviceGUID.json'); 
 } catch(err) {
-  console.error('Could not open the deviceGUID.json file!')
+  console.error('Could not open the deviceGUID.json file!', err);
 }
 
 
