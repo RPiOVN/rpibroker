@@ -40,7 +40,7 @@ function writeDockerfile(port, username, password) {
       "ENTRYPOINT [\"./finalsetup\", \"node\", \"dummyapp.js\"]\n";
 
   
-  fs.writeFile('./assets/test.txt', fileString, function (err) {
+  fs.writeFile('./assets/Dockerfile', fileString, function (err) {
 
     if(err) {
       debugger;
