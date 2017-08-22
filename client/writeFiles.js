@@ -17,7 +17,7 @@ function writeDockerfile(port, username, password) {
 
   var fileString = "FROM resin/rpi-raspbian\n"+
       "MAINTAINER Chris Troutner <chris.troutner@gmail.com>"+
-      "RUN apt-get update "+
+      "RUN apt-get update"+
       "RUN apt-get install -y openssh-server\n"+
       "RUN apt-get install nano\n"+
       "RUN apt-get install ssh\n"+
