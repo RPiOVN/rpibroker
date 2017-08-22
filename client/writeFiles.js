@@ -30,9 +30,9 @@ function writeDockerfile(port, username, password) {
       "RUN apt-get install -y nodejs\n"+
       "RUN apt-get install -y build-essential\n"+
       "RUN npm install express\n"+
-      "RUN useradd -ms /bin/bash testuser\n"+
-      "RUN echo testuser:password | chpasswd\n"+
-      "EXPOSE 6101\n"+
+      "RUN useradd -ms /bin/bash "+username+"\n"+
+      "RUN echo "+username+":"+password+" | chpasswd\n"+
+      "EXPOSE "+port+"\n"+
       "EXPOSE 3100\n"+
       "COPY dummyapp.js dummyapp.js\n"+
       "COPY finalsetup finalsetup\n"+
