@@ -302,7 +302,7 @@ obj.checkinTimeStamp = now.toISOString();
 //Register with the server by sending the benchmark data.
 request.post(
   {
-    url: 'http://174.138.35.118:3000/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
+    url: 'http://174.138.35.118:3003/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
     form: obj
   },
 	function (error, response, body) {
