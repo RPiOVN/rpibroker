@@ -19,7 +19,7 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-
+      
 		},
 
 		initialize: function () {
@@ -40,7 +40,9 @@ define([
       //debugger;
       //global.modalView.render();
       global.modalView.openModal();
-    }
+    },
+    
+    
     
 	});
 

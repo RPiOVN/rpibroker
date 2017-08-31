@@ -18,115 +18,62 @@
   }
 </style>
 
+<div id="deviceList">
+  <!-- Device list will populate this div -->
+  
+  <!-- Template scaffold -->
+  <div class="row deviceScaffold" style="margin: 10px; border-radius: 25px; border: 1px solid black;" hidden>
+    <h3>Device ID: <span class="deviceId"></span> <span class="pull-right"><button class="btn btn-danger" class="deviceDelete" style="margin-right: 30px;">Delete</button></span></h3>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="nice-border">
+        <h4><strong>Status:</strong> <span style="color: red;" class="deviceConnectionStatus">Not Connected</span></h4>
+        <button class="btn btn-primary btn-sm center-block" disabled>Submit to Market</button>
+      </div>
+      <div class="nice-border">
+        <h4><u>Device Specs:</u></h4>
+        <ul>
+          <li><strong>Memory:</strong> <span class="deviceMemory"></span></li>
+          <li><strong>Disk Space:</strong> <span class="deviceDiskSpace"></span></li>
+          <li><strong>Internet Speed:</strong> <span class="deviceInternetSpeed"></span></li>
+          <li><strong>Processor: <span class="deviceProcessor"></span></strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="nice-border" style="min-height: 230px;">
+        <div>
+          <h4><u>Name:</u> <span class="deviceName"></span></h4>
+          <h4><u>Description:</u></h4>
+          <div class="deviceDescription">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="nice-border" style="max-height: 300px; overflow-y: scroll; min-height: 230px;">
+        <div>
+          <h4><u>Reviews:</u></h4>
+          <div class="deviceReviews">
+            <p>3/5 - Randy</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio enim, tempus et venenatis non, sagittis sit amet augue. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<hr style="border-top: 2px solid #000;">
+
 <div class="row">
-  <div class="col-sm-12">
-    <p>
-      Below is a mock up of the 'Owned Devices' screen that allows device owners to manage their devices in the marketplace.
-    </p>
+  <div class="col-md-12">
+    <button type="button" class="btn btn-success" id="addNewDeviceBtn" style="margin-top: 10px; margin-bottom: 20px;">+ Add New Device</button>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-12">
-    <h2>Owned Devices</h2>    
-  </div>
-</div>
-
-<div class="row jumbotron" style="margin: 10px; border-radius: 25px;">
-  <h3>Device 1</h3>
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border">
-      <h4><strong>Status:</strong> <span style="color: yello;">Connected</span></h4>
-      <button class="btn btn-primary btn-sm center-block">Submit to Market</button>
-    </div>
-    <div class="nice-border">
-      <h4><u>Device Specs:</u></h4>
-      <ul>
-        <li><strong>Memory:</strong> 793 MB</li>
-        <li><strong>Disk Space:</strong> 7.34 GB</li>
-        <li><strong>Internet Speed:</strong> 12 kbps up/53 kbps down</li>
-        <li><strong>Processor: Raspberry Pi 3</strong></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border">
-      <div>
-        <h4><u>Description</u></h4>
-        <textarea rows="10" class="form-control" style="overflow-y: scroll;"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border" style="max-height: 300px; overflow-y: scroll;">
-      <div>
-        <h4><u>Reviews:</u></h4>
-        <div>
-          <p>3/5 - Randy</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio enim, tempus et venenatis non, sagittis sit amet augue. 
-          </p>
-        </div>
-        <div>
-          <p>4/5 - Bob</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio enim, tempus et venenatis non, sagittis sit amet augue. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<div class="row jumbotron" style="margin: 10px; border-radius: 25px;">
-  <h3>Device 2</h3>
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border">
-      <h4><strong>Status:</strong> <span style="color: green;">In Marketplace</span></h4>
-      <button class="btn btn-danger btn-sm center-block">Remove from Market</button>
-    </div>
-    <div class="nice-border">
-      <h4><u>Device Specs:</u></h4>
-      <ul>
-        <li><strong>Memory:</strong> 1.4 GB</li>
-        <li><strong>Disk Space:</strong> 15.43 GB</li>
-        <li><strong>Internet Speed:</strong> 43 kbps up/115 kbps down</li>
-        <li><strong>Processor: Raspberry Pi 3</strong></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border">
-      <div>
-        <h4><u>Description</u></h4>
-        <textarea rows="10" class="form-control" style="overflow-y: scroll;"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="nice-border" style="max-height: 300px; overflow-y: scroll;">
-      <div>
-        <h4><u>Reviews:</u></h4>
-        <div>
-          <p>3/5 - Randy</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio enim, tempus et venenatis non, sagittis sit amet augue. 
-          </p>
-        </div>
-        <div>
-          <p>4/5 - Bob</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio enim, tempus et venenatis non, sagittis sit amet augue. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>

@@ -18,7 +18,8 @@ define([
 
 		// The DOM events specific to an item.
 		events: {
-
+      'click #addNewDeviceBtn': 'loadDeviceEditor',
+      'click .deviceDelete': 'deleteDevice'
 		},
 
 		initialize: function () {
@@ -32,6 +33,8 @@ define([
       
       $('#devicesView').show();
       
+      this.populateDevices();
+      
 			return this;
 		},
     
@@ -39,6 +42,72 @@ define([
       //debugger;
       //global.modalView.render();
       global.modalView.openModal();
+    },
+    
+    //Load the device editor. This function is called when the user clicks the '+Add New Device' button.
+    loadDeviceEditor: function() {
+      //debugger;
+      
+      global.deviceEditorView.render();
+    },
+    
+    //This function is called when the user clicks the 'Delete' button associated with a device.
+    deleteDevice: function() {
+      debugger;
+    },
+    
+    //This function is called by render(). It populates the DOM by cloning the scaffold and populating it with device data
+    //from the database.
+    populateDevices() {
+      //debugger;
+      
+      $.get('/api/devicePublicData/list', '', function(data) {
+        //debugger;
+        
+        var deviceList = data.collection;
+        var myDevices = [];
+        var myUserId = userdata._id;
+        
+        //Loop through all the devices and collect the ones that belong to this user.
+        for(var i=0; i < deviceList.length; i++) {
+          var thisDevice = deviceList[i];
+          
+          if(thisDevice.ownerUser == myUserId) {
+            myDevices.push(thisDevice);
+          }
+        }
+        
+        //Exit if there are no devices
+        if(myDevices.length == 0)
+          return;
+        
+        //Create a line item for each device associated with this user
+        for(var i=0; i < myDevices.length; i++) {
+          var thisDevice = myDevices[i];
+          var thisRow = global.devicesView.$el.find('.deviceScaffold').clone();
+          
+          thisRow.removeClass('deviceScaffold');
+          
+          thisRow.find('.deviceId').text(thisDevice._id);
+          thisRow.find('.deviceName').text(thisDevice.deviceName);
+          thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
+          
+          global.devicesView.$el.find('#deviceList').append(thisRow);
+          thisRow.show();
+        }
+        
+        
+        
+      })
+      .fail( function(jqxhr, textStatus, error) {
+        //This is the error handler.
+        debugger;
+
+        log.push('Error while trying to list device public data in devicesView.js/populateDevices().');
+        //sendLog();
+        console.error('Communication error with server while execute devicesView.js/populateDevices()');
+        
+      });
     }
     
 	});
