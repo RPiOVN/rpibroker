@@ -38,7 +38,7 @@ keystone.init({
   'auth': true,
   'user model': 'User',
   'file limit': '50MB',
-  'mongo': 'mongodb://172.17.0.1:3500/rpibroker',
+  'mongo': 'mongodb://172.17.0.1:3502/rpibroker',
   'signin redirect': '/market',
   'signout redirect': '/'
 });
