@@ -174,7 +174,7 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
-      request('http://localhost:3002/api/portcontrol/create', 
+      request('http://localhost:3000/api/portcontrol/create', 
       function (error, response, body) {
 
         //If the request was successfull.
