@@ -174,6 +174,8 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
+      var deviceData;
+      
       request('http://localhost:3000/api/portcontrol/create', 
       function (error, response, body) {
 
@@ -183,7 +185,7 @@ exports.register = function(req, res) {
 
           //Convert the data from a string into a JSON object.
           var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
-          data = data.newDevice;
+          deviceData = data.newDevice;
 
           console.log('API call to portcontrol succeeded!');
           
@@ -209,16 +211,16 @@ exports.register = function(req, res) {
       debugger;
       
       //Return the data to the client.
-      var obj = {};
+      //var obj = {};
       //obj.username = 'test123';
       //obj.password = 'password123';
       //obj.port = 'port123';
-      obj.username = data.username;
-      obj.password = data.password;
-      obj.port = data.port;
+      //obj.username = data.username;
+      //obj.password = data.password;
+      //obj.port = data.port;
       
       res.apiResponse({
-        clientData: obj
+        clientData: deviceData
       })
       
     } catch(err) {
