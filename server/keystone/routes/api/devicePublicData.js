@@ -182,8 +182,8 @@ exports.register = function(req, res) {
           debugger;
 
           //Convert the data from a string into a JSON object.
-          //var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
-          //var data = JSON.parse(data.status); //Convert the JSON string into an object.
+          var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
+          var data = JSON.parse(data.status); //Convert the JSON string into an object.
 
           console.log('API call to portcontrol succeeded!');
           
