@@ -104,6 +104,7 @@ exports.create = function(req, res) {
     //  device: item
     //});
 
+    /*
     var item2 = new DeviceModel.model();
     item2.getUpdateHandler(req).process(data2, function(err) {
 
@@ -112,25 +113,12 @@ exports.create = function(req, res) {
       res.apiResponse({
         newDevice: item2
       });
-/*
-      //Add user to the system.
-      var options = {
-        cachePassword: true,
-        prompt: 'Password, yo? ',
-        spawnOptions: { }
-      };
-      
-      console.log('Adding user '+data2.username+' to system.');
-      child = sudo([ './adduser', data2.username, data2.password ], options);
-      child.stdout.on('data', function (data) {
-          console.log(data.toString());
-      });
-      child.stderr.on('data', function (data) {
-        console.log('stderr: ' + data);
-      });
-*/      
+  
     });
-    
+    */
+    res.apiResponse({
+      newDevice: data2
+    });
     
 		//res.apiResponse({
 		//	collection: items
