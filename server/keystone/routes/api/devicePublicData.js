@@ -187,6 +187,10 @@ exports.register = function(req, res) {
           var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
           deviceData = data.newDevice;
 
+          res.apiResponse({
+            clientData: deviceData
+          })
+          
           console.log('API call to portcontrol succeeded!');
           
         //Server returned an error.
@@ -208,8 +212,6 @@ exports.register = function(req, res) {
       
       //Save data to the devicePrivateModel
       
-      debugger;
-      
       //Return the data to the client.
       //var obj = {};
       //obj.username = 'test123';
@@ -219,9 +221,7 @@ exports.register = function(req, res) {
       //obj.password = data.password;
       //obj.port = data.port;
       
-      res.apiResponse({
-        clientData: deviceData
-      })
+      
       
     } catch(err) {
       debugger;
