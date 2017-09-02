@@ -49,7 +49,7 @@ exports.create = function(req, res) {
   //Get a port assignment
   //var port = getPort(req, data2);
   
-  
+  //Retrieve the list of used ports from the database.
   PortsUsedModel.model.find(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);

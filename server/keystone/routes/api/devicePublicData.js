@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var request = require('request');
 
 
 var DevicePublicModel = keystone.list('DevicePublicModel');
@@ -173,7 +174,35 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
-      //Generate username, password, and port
+      request('/api/portcontrol/create', 
+      function (error, response, body) {
+
+        //If the request was successfull.
+        if (!error && response.statusCode == 200) {
+          debugger;
+
+          //Convert the data from a string into a JSON object.
+          //var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
+          //var data = JSON.parse(data.status); //Convert the JSON string into an object.
+
+          console.log('API call to portcontrol succeeded!');
+          
+        //Server returned an error.
+        } else {
+          debugger;
+
+          try {
+            
+            var msg = '...Error returned from server when requesting log file status. Server returned: '+response.statusCode;
+            console.error(msg);
+
+          //Catch unexpected errors.
+          } catch(err) {
+            var msg = 'Error in devicePublicData.js/register() while trying to call /api/portcontrol/create. Error: '+err.message;
+            console.error(msg);
+          }
+        }
+      });
       
       //Save data to the devicePrivateModel
       
