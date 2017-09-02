@@ -174,7 +174,7 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
-      request('/api/portcontrol/create', 
+      request('http://localhost:3002/api/portcontrol/create', 
       function (error, response, body) {
 
         //If the request was successfull.
@@ -193,7 +193,7 @@ exports.register = function(req, res) {
 
           try {
             
-            var msg = '...Error returned from server when requesting log file status. Server returned: '+response.statusCode;
+            var msg = '...Error returned from server when requesting log file status. Server returned: '+error.message;
             console.error(msg);
 
           //Catch unexpected errors.
