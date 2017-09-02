@@ -317,9 +317,9 @@ request.post(
       //Convert the data from a string into a JSON object.
       var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
 
-      console.log('Username: '+data.username);
-      console.log('Password: '+data.password);
-      console.log('Port: '+data.port);
+      console.log('Username: '+data.clientData.username);
+      console.log('Password: '+data.clientData.password);
+      console.log('Port: '+data.clientData.port);
 
     } else {
       debugger;
