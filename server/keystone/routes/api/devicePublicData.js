@@ -183,7 +183,7 @@ exports.register = function(req, res) {
 
           //Convert the data from a string into a JSON object.
           var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
-          var data = JSON.parse(data.status); //Convert the JSON string into an object.
+          data = data.newDevice;
 
           console.log('API call to portcontrol succeeded!');
           
@@ -208,9 +208,12 @@ exports.register = function(req, res) {
       
       //Return the data to the client.
       var obj = {};
-      obj.username = 'test123';
-      obj.password = 'password123';
-      obj.port = 'port123';
+      //obj.username = 'test123';
+      //obj.password = 'password123';
+      //obj.port = 'port123';
+      obj.username = data.username;
+      obj.password = data.password;
+      obj.port = data.port;
       
       res.apiResponse({
         clientData: obj
