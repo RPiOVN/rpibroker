@@ -179,7 +179,7 @@ exports.register = function(req, res) {
 
         //If the request was successfull.
         if (!error && response.statusCode == 200) {
-          debugger;
+          //debugger;
 
           //Convert the data from a string into a JSON object.
           var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
@@ -189,7 +189,7 @@ exports.register = function(req, res) {
           
         //Server returned an error.
         } else {
-          debugger;
+          //debugger;
 
           try {
             
@@ -205,6 +205,8 @@ exports.register = function(req, res) {
       });
       
       //Save data to the devicePrivateModel
+      
+      debugger;
       
       //Return the data to the client.
       var obj = {};
