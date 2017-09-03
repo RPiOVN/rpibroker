@@ -63,7 +63,7 @@ exports.create = function(req, res) {
       var data = {};
       
       //item.set('usedPort', ["3000"]);
-      data.usedPort = ["3000"];
+      data.usedPort = ["6000"];
       item.getUpdateHandler(req).process(data, function(err) {
 
         if (err) return res.apiError('error', err);
@@ -72,7 +72,7 @@ exports.create = function(req, res) {
 
       });
       
-      var newPort = "3001";
+      var newPort = "6001";
       
     } else {
       var portsModel = items[0];
@@ -81,7 +81,7 @@ exports.create = function(req, res) {
       
       //Error Handling
       if(lastPort == undefined)
-        lastPort = "3000";
+        lastPort = "6000";
       
       var newPort = Number(lastPort)+1;
       newPort = newPort.toString();
