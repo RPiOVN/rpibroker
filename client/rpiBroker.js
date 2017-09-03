@@ -55,30 +55,6 @@ global.debugState = true; //Used to turn verbose debugging off or on.
 
 
 /*
-global.gpsInterface = new GPSInterface.Constructor();
-global.dataLog = new DataLog.Constructor();
-global.serverInterface = new ServerInterface.Constructor();
-global.wifiInterface = new WifiInterface.Constructor();
-global.appLogAPI = new AppLogAPI.Constructor();
-global.diagnostics = new Diagnostics.Constructor();
-//dataLog.helloWorld();
-*/
-
-/*
-//Backup the PM2 log if the device is configured for it.
-try {
-  if(serverSettings.backupPm2Log == "true") {
-    global.appLogAPI.backupLog();
-  } else {
-    console.log('Leaving PM2 logs alone because backupPm2Log set to false');
-  }
-  
-} catch(err) {
-  console.error('Problem trying to read backupPm2Log setting. Err: ',err);
-}
-*/
-
-/*
  * Use Handlebars for templating
  */
 var exphbs = require('express3-handlebars');
@@ -322,7 +298,7 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      writeFiles(data.clientData.username, data.clientData.password, data.clientData.port);
+      writeFiles.writeDockefile(data.clientData.username, data.clientData.password, data.clientData.port);
 
     } else {
       debugger;
