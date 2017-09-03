@@ -192,19 +192,16 @@ function launchDocker() {
       console.log('Docker image built.');
       
       exec('./assets/runImage', function(err, stdout, stderr) {
-      //debugger;
+        //debugger;
 
-      if (err) {
-          console.log('child process for buildImage exited with error code ' + err.code);
-          return false;
-      } else {
-        console.log('Docker image is running.');
-
-
-      }
+        if (err) {
+            console.log('child process for buildImage exited with error code ' + err.code);
+            return false;
+        } else {
+          console.log('Docker image is running.');
+        }
+      });
     }
-
-    return true;
 
   });
   
