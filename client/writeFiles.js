@@ -65,6 +65,7 @@ function Constructor() {
   };
 
   this.writeReverseTunnel = function(port, username, password) {
+    debugger;
     
     var promise = new Promise.Promise();
     
@@ -72,8 +73,8 @@ function Constructor() {
       "tunnel({\n"+
       "  host: '"+global.serverIp+"',\n"+
       "  port: 6100,\n"+
-      "  username: '"+username+"',\n"+
-      "  password: '"+password+"',\n"+
+      "  username: 'sshuser',\n"+
+      "  password: 'sshuserpassword',\n"+
       "  dstHost: '0.0.0.0',\n"+
       "  dstPort: "+port+", \n"+
       "  srcPort: 3100 \n"+
