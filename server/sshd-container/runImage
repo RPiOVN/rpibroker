@@ -4,4 +4,5 @@
 #cp config ~/.ssh/
 
 #Run the docker image
-docker run -d --rm --name ssh-shell -p 4100:4100 sshd-container
+docker run -d --rm --name ssh-shell -p 6100:6100 sshd-container
+
