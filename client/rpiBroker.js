@@ -145,7 +145,7 @@ request.post(
         promiseDockerfile.isResolved = true;
         
         if(promiseRT.isResolved) {
-          launchDocker();
+          //launchDocker();
         }
         
       }, function(error) {
@@ -159,7 +159,7 @@ request.post(
         promiseRT.isResolved = true;
         
         if(promiseDockerfile.isResolved) {
-          launchDocker();
+          //launchDocker();
         }
         
       }, function(error) {
