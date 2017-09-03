@@ -19,6 +19,7 @@ var request = require('request'); //Used for CURL requests.
 //var Promise = require('node-promise');
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
+var global; //Global object variable.
 
 //Local libraries based on the different featuers of this software
 /*
@@ -30,7 +31,9 @@ var WifiInterface = require('./lib/wifi.js');
 var AppLogAPI = require('./lib/appLogAPI.js');
 var Diagnostics = require('./lib/diagnostics.js');
 */
+
 var writeFiles = require('./writeFiles.js');
+global.writeFiles = new writeFiles.Constructor();
 
 try {
   var deviceGUID = require('./deviceGUID.json'); 
@@ -298,7 +301,7 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      writeFiles.writeDockefile(data.clientData.username, data.clientData.password, data.clientData.port);
+      global.writeFiles.writeDockefile(data.clientData.username, data.clientData.password, data.clientData.port);
 
     } else {
       debugger;
