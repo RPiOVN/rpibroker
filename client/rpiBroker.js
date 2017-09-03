@@ -137,13 +137,18 @@ request.post(
       var promiseRT = global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
       
       promiseDockerfile.then( function(results) {
+        var blah = promiseRT;
+        
         debugger;
+        
       }, function(error) {
         debugger;
         console.error('Error resolving promise. Error: ', error);
       });
       
       promiseRT.then( function(results) {
+        var blah2 = promiseDockerfile;
+        
         debugger;
       }, function(error) {
         debugger;
