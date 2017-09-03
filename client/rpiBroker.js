@@ -139,12 +139,12 @@ request.post(
       promiseRT.isResolved = false;
       
       promiseDockerfile.then( function(results) {
-        debugger;
+        //debugger;
         
         promiseDockerfile.isResolved = true;
         
         if(promiseRT.isResolved) {
-          'Both are resolved!'
+          launchDocker();
         }
         
       }, function(error) {
@@ -153,12 +153,12 @@ request.post(
       });
       
       promiseRT.then( function(results) {
-        debugger;
+        //debugger;
         
         promiseRT.isResolved = true;
         
         if(promiseDockerfile.isResolved) {
-          'Both are resolved!'
+          launchDocker();
         }
         
       }, function(error) {
@@ -177,16 +177,8 @@ request.post(
 
 });
 
-/*
-this.compareServerClientTimestamps = function(fileName) {
-  //debugger;
-
-  var promise = new Promise.Promise();
-
-  //promise.resolve(obj);
-  //promise.reject(error);
+function launchDocker() {
+  debugger;
+  console.log('Launching Docker container...');
   
-
-  return promise;
 }
-*/
