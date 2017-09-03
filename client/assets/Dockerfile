@@ -13,9 +13,9 @@ RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 RUN npm install express
-RUN useradd -ms /bin/bash Lw9wxDOOGf
-RUN echo Lw9wxDOOGf:U8s9V9K86A | chpasswd
-EXPOSE 3008
+RUN useradd -ms /bin/bash qvtYHm1p9z
+RUN echo qvtYHm1p9z:9a3QyVAyuc | chpasswd
+EXPOSE 3015
 EXPOSE 3100
 COPY dummyapp.js dummyapp.js
 COPY finalsetup finalsetup
