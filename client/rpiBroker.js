@@ -30,6 +30,7 @@ var WifiInterface = require('./lib/wifi.js');
 var AppLogAPI = require('./lib/appLogAPI.js');
 var Diagnostics = require('./lib/diagnostics.js');
 */
+var writeFiles = require('./writeFiles.js');
 
 try {
   var deviceGUID = require('./deviceGUID.json'); 
@@ -320,6 +321,8 @@ request.post(
       console.log('Username: '+data.clientData.username);
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
+      
+      writeFiles(data.clientData.username, data.clientData.password, data.clientData.port);
 
     } else {
       debugger;
