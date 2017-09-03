@@ -56,7 +56,25 @@ function Constructor() {
       }
     });
   };
-  //writeDockerfile(port, username, password);
+
+  this.writeReverseTunnel = function(port, username, password) {
+    var fileString = "var tunnel = require('reverse-tunnel-ssh');\n"+
+      "tunnel({\n"+
+      "  host: '"global.serverIp"',\n"+
+      "  port: 6100,\n"+
+      "  username: '"+username+"',\n"+
+      "  password: '"+password+"',\n"+
+      "  dstHost: '0.0.0.0',\n"+
+      "  dstPort: "+port+", \n"+
+      "  srcPort: 3100 \n"+
+      "}, function(error, clientConnection) {\n"+
+      "  if(error)\n"+
+      "    console.error('Error! ', error);\n"+
+      "});" 
+  };
+  
+
+
 
   return(this);
   

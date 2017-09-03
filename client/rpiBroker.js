@@ -20,6 +20,8 @@ var request = require('request'); //Used for CURL requests.
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
 var global = {}; //Global object variable.
+global.serverIp = "174.138.35.118";
+global.serverPort = "3002";
 
 //Local libraries based on the different featuers of this software
 /*
@@ -111,7 +113,7 @@ obj.checkinTimeStamp = now.toISOString();
 //Register with the server by sending the benchmark data.
 request.post(
   {
-    url: 'http://174.138.35.118:3002/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
+    url: 'http://'+global.serverIp+':'+global.serverPort+'/api/devicePublicData/'+deviceGUID.deviceId+'/register', 
     form: obj
   },
 	function (error, response, body) {
@@ -132,6 +134,8 @@ request.post(
       
       global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
 
+      global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
+      
     } else {
       debugger;
 
