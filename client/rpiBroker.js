@@ -19,7 +19,7 @@ var request = require('request'); //Used for CURL requests.
 //var Promise = require('node-promise');
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
-var global; //Global object variable.
+var global = {}; //Global object variable.
 
 //Local libraries based on the different featuers of this software
 /*
