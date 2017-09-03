@@ -133,13 +133,19 @@ request.post(
       console.log('Port: '+data.clientData.port);
       
       var promiseDockerfile = global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
-
+      promiseDockerfile.isResolved = false;
+      
       var promiseRT = global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
+      promiseRT.isResolved = false;
       
       promiseDockerfile.then( function(results) {
-        var blah = promiseRT;
-        
         debugger;
+        
+        promiseDockerfile.isResolved = true;
+        
+        if(promiseRT.isResolved) {
+          'Both are resolved!'
+        }
         
       }, function(error) {
         debugger;
@@ -147,9 +153,14 @@ request.post(
       });
       
       promiseRT.then( function(results) {
-        var blah2 = promiseDockerfile;
-        
         debugger;
+        
+        promiseRT.isResolved = true;
+        
+        if(promiseDockerfile.isResolved) {
+          'Both are resolved!'
+        }
+        
       }, function(error) {
         debugger;
         console.error('Error resolving promise. Error: ', error);
