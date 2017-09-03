@@ -88,186 +88,15 @@ app.set('view engine', 'handlebars');
 
 
 
-/*
- * Routes
- */
-//Allow CORS
-/*
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-*/
 // Index Page
 app.get('/', function(request, response, next) {
     response.render('index');
 });
 
-/*
-//Request Handler/Webserver functions
-app.use('/listLogFiles', requestHandlers.listLogFiles);
-app.use('/queryTracking', requestHandlers.queryTracking);
-app.use('/wifiSettings', global.wifiInterface.wifiSettings);
-app.use('/saveSettings', requestHandlers.saveSettings);
-app.use('/getLog', global.appLogAPI.getLog);
-app.use('/syncLog', global.serverInterface.getSyncLog);
-app.use('/startSync', global.serverInterface.startSync);
-app.use('/stopSync', global.serverInterface.stopSync);
-app.use('/updateSoftware', requestHandlers.updateSoftware);
-app.use('/rebootRPi', requestHandlers.rebootRPi);
-*/
-
-
-//Save the listener to the Express app locals so I can access it in the request handlers.
-//app.locals.listener = listener;
-
-
-
-/*
- * Open a JSON file for recording GPS data
- */
-/*
-//This interval function checks every 10 second to see if valid time stamps are coming from the GPS.
-//Once a valid time stamp arrives, it is used to generate the file names for the log files and opens or creates those log files.
-var getGPSTimeStamp = setInterval(function() {
-  //debugger;
-  
-  if(global.gpsInterface.timeStamp != undefined) {
-
-    var timeStamp = global.gpsInterface.timeStamp;
-    
-    console.log('Time stamp retrieved from GPS: '+timeStamp+'. Opening log files.')
-    
-    //Error Handling
-    if((global.gpsInterface.coordinateBuffer[0][0] == null) || (global.gpsInterface.coordinateBuffer[0][1] == null)) {
-      console.log('GPS values are still null... waiting for more data.');
-      return;
-    } else {
-      console.log('GPS values are good. Beging data logging.');
-    }
-      
-    //Generate a file name based on the current date.
-    //Dev Note: The RPi date/time can't be trusted. I should update this data with data from the GPS.
-    global.dataLog.fileNameGeoJSONPoint = timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2)+'-PT'+'.json';
-    global.dataLog.fileNameGeoJSONLineString = timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2)+'-LS'+'.json';
-    global.dataLog.fileNameKMLPoint = timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2)+'-PT'+'.kml';
-    global.dataLog.fileNameKMLLineString = timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2)+'-LS'+'.kml';
-    global.dataLog.docName = timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2)+" Tracking Data";
-    global.dataLog.docDesc = "Tracking data captured with the Raspberry Pi on "+timeStamp.getFullYear()+'-'+('00'+(timeStamp.getUTCMonth()+1)).slice(-2)+'-'+('00'+(timeStamp.getUTCDate())).slice(-2);
-    
-    //Read in the log files if they already exists. Otherwise create a new file.
-    //First log file. 
-    global.dataLog.readPointFile();
-    //Second log file.
-    global.dataLog.readLineStringFile();
-
-    //Clear the interval once we've successfully retrieved the timestamp and opened the log files.
-    clearInterval(getGPSTimeStamp);
-    
-    //Signal to global.dataLog.logData() that data can now be logged to the log files.
-    global.dataLog.logFileOpened = true;
-  }
-  
-}, 10000);
-*/
-
-
-
-/* BEGIN - Timer event to record GPS data to a file */ 
-//Production
-//global.dataLog.timeout = serverSettings.gpsDataLogTimeout;  //1000 = 1 second. 
-//global.dataLog.fileSaveCnt = serverSettings.gpsFileSaveTimeoutCnt; //Number of intervals until the file is saved.
-
-//Testing
-//global.dataLog.timeout = 15000;  //1000 = 1 second.
-//global.dataLog.fileSaveCnt = 1; //Number of intervals until the file is saved.
-
-//Create an interval timer to periodically add GPS coordinates to the running log.
-//Whenever the interval timer event triggers, all the coordinates that have been collected in the buffer get averaged.
-//var intervalHandle = setInterval(global.dataLog.logData, global.dataLog.timeout);
-/* END - Timer event to record GPS data to a file */ 
-
-
- /* BEGIN - SERVER INTERFACE FOR LOGGING TO SERVER */
-//Skip this code if the serverInterface is not even set up.
-/*
-if(global.serverInterface != undefined) {
-  //Sync only if RPi-Tracker is setup for WiFi client mode
-  if(serverSettings.wifiType == "2") {
-    if(serverSettings.syncOnBoot == "true") {
-      console.log('syncOnBoot flag set to true and WiFi type is set to Client. Starting sync with Crumb Share server.');
-      global.serverInterface.intervalHandle = setInterval(global.serverInterface.updateServer, global.serverInterface.timeout);
-      
-      //Also start uploading the IP address
-      global.diagnostics.startIpSync();
-    }
-  }
-}
-*/
-/* END - SERVER INTERFACE FOR LOGGING TO SERVER */
-
-
-//Read the jumper and force default AP mode if the jumper is connected between GPIO pin 21 and ground.
-//This feature needs to be turned on in server_settings.json and configured by following the instructions in the gpio directory.
-/*
-if(serverSettings.internalPullupConfigured == "true") {
-  
-  //console.log('serverSettings.internalPullupConfigured = '+serverSettings.internalPullupConfigured);
-  
-  var pin21 = new Gpio(21, 'in');
-  pin21.read(function(err, value) {
-    
-    if(err) throw err;
-    
-    //If the pin is reading as a logic low or 0
-    if(!value) {
-      
-      //Skip if the device is already configured for AP mode
-      if(serverSettings.wifiType != "1") {
-        //console.log('serverSettings.wifiType = '+serverSettings.wifiType);
-        
-        console.log('GPIO Pin 21 reading low, indicating jumper is on. Resetting device to factory-default AP mode...');
-
-        //Reset the RPi into AP mode with the default settings.
-        global.wifiInterface.makeAP();
-      }
-      
-    }
-    
-  });
-}
-
-
-//Determine if previous settings need to be restored if the device has been rebooted several times 
-//with rebootConfirmationNeeded set to true.
-if(serverSettings.rebootConfirmationNeeded == "true") {
-  global.wifiInterface.restoreCheck();
-}
-*/
-
 /* Start up the Express web server */
 app.listen(process.env.PORT || port);
 console.log('Express started on port ' + port);
 
-
-// BEGIN GLOBAL UTILITY FUNCTIONS
-
-//Save the serverSettings variable to file.
-/*
-global.saveServerSettings = function(thisServerSettings) {
-  //Write out the server_settings.json file.
-  fs.writeFile('./assets/server_settings.json', JSON.stringify(thisServerSettings, null, 4), function (err) {
-    if(err) {
-      console.log('Error in global.saveServerSettings() while trying to write server_settings.json file.');
-      console.log(err);
-    } else {
-      console.log('global.saveServerSettings() executed. server_settings.json updated.');
-    }
-  });
-}
-*/
-// END GLOBAL UTITLITY FUNCTIONS
 
 //Simulate benchmark tests with dummy data.
 var obj = {};
@@ -301,7 +130,7 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      global.writeFiles.writeDockefile(data.clientData.username, data.clientData.password, data.clientData.port);
+      global.writeFiles.writeDockerfile(data.clientData.username, data.clientData.password, data.clientData.port);
 
     } else {
       debugger;
