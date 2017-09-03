@@ -133,34 +133,26 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      var promiseDockerfile = global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
-      promiseDockerfile.isResolved = false;
+      
       
       var promiseRT = global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
-      promiseRT.isResolved = false;
       
-      promiseDockerfile.then( function(results) {
-        //debugger;
-        
-        promiseDockerfile.isResolved = true;
-        
-        if(promiseRT.isResolved) {
-          //launchDocker();
-        }
-        
-      }, function(error) {
-        debugger;
-        console.error('Error resolving promise. Error: ', error);
-      });
+      
       
       promiseRT.then( function(results) {
         //debugger;
         
-        promiseRT.isResolved = true;
+        var promiseDockerfile = global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
         
-        if(promiseDockerfile.isResolved) {
-          //launchDocker();
-        }
+        promiseDockerfile.then( function(results) {
+          //debugger;
+
+          console.log('Dockerfile and reverse-tunnel-generated.js successfully written.')
+
+        }, function(error) {
+          debugger;
+          console.error('Error resolving promise. Error: ', error);
+        });
         
       }, function(error) {
         debugger;

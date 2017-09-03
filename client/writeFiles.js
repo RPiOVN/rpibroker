@@ -44,6 +44,7 @@ function Constructor() {
         "EXPOSE 3100\n"+
         "COPY dummyapp.js dummyapp.js\n"+
         "COPY finalsetup finalsetup\n"+
+        "COPY reverse-tunnel-generated.js reverse-tunnel.js\n"+
         "RUN chmod 775 finalsetup\n"+
         "ENTRYPOINT [\"./finalsetup\", \"node\", \"dummyapp.js\"]\n";
 
