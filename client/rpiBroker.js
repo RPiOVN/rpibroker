@@ -20,7 +20,7 @@ var Promise = require('node-promise');
 var exec = require('child_process').exec; //Used to execute command line instructions.
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
-var global = {}; //Global object variable.
+//var global = {}; //Global object variable.
 global.serverIp = "174.138.35.118";
 global.serverPort = "3002";
 
