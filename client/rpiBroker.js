@@ -17,6 +17,7 @@ var fs = require('fs');
 var http = require('http'); //Used for GET and POST requests
 var request = require('request'); //Used for CURL requests.
 var Promise = require('node-promise');
+var exec = require('child_process').exec; //Used to execute command line instructions.
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
 var global = {}; //Global object variable.
@@ -180,5 +181,31 @@ request.post(
 function launchDocker() {
   debugger;
   console.log('Launching Docker container...');
+  
+  exec('./assets/buildImage', function(err, stdout, stderr) {
+    //debugger;
+
+    if (err) {
+        console.log('child process for buildImage exited with error code ' + err.code);
+        return false;
+    } else {
+      console.log('Docker image built.');
+      
+      exec('./assets/runImage', function(err, stdout, stderr) {
+      //debugger;
+
+      if (err) {
+          console.log('child process for buildImage exited with error code ' + err.code);
+          return false;
+      } else {
+        console.log('Docker image is running.');
+
+
+      }
+    }
+
+    return true;
+
+  });
   
 }
