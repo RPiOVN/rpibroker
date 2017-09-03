@@ -130,7 +130,7 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      global.writeFiles.writeDockerfile(data.clientData.username, data.clientData.password, data.clientData.port);
+      global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
 
     } else {
       debugger;
