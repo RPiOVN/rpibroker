@@ -52,7 +52,7 @@ function Constructor() {
         console.error('Error while trying to write file: ', err);
 
       } else {
-        console.log('File written successfully!');
+        console.log('Dockerfile written successfully!');
       }
     });
   };
@@ -70,7 +70,18 @@ function Constructor() {
       "}, function(error, clientConnection) {\n"+
       "  if(error)\n"+
       "    console.error('Error! ', error);\n"+
-      "});" 
+      "});";
+    
+    fs.writeFile('./assets/reverse-tunnel-generated.js', fileString, function (err) {
+
+      if(err) {
+        debugger;
+        console.error('Error while trying to write file: ', err);
+
+      } else {
+        console.log('reverse-tunnel-generated.js written successfully!');
+      }
+    });
   };
   
 
