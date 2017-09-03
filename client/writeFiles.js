@@ -48,7 +48,7 @@ function Constructor() {
         "ENTRYPOINT [\"./finalsetup\", \"node\", \"dummyapp.js\"]\n";
 
 
-    fs.writeFile('./assets/Dockerfile', fileString, function (err) {
+    fs.writeFile('./Dockerfile', fileString, function (err) {
 
       if(err) {
         debugger;
@@ -82,7 +82,7 @@ function Constructor() {
       "    console.error('Error! ', error);\n"+
       "});";
     
-    fs.writeFile('./assets/reverse-tunnel-generated.js', fileString, function (err) {
+    fs.writeFile('./reverse-tunnel-generated.js', fileString, function (err) {
 
       if(err) {
         debugger;

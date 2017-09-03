@@ -182,7 +182,7 @@ function launchDocker() {
   debugger;
   console.log('Launching Docker container...');
   
-  exec('./assets/buildImage', function(err, stdout, stderr) {
+  exec('./buildImage', function(err, stdout, stderr) {
     //debugger;
 
     if (err) {
@@ -191,7 +191,7 @@ function launchDocker() {
     } else {
       console.log('Docker image built.');
       
-      exec('./assets/runImage', function(err, stdout, stderr) {
+      exec('./runImage', function(err, stdout, stderr) {
         //debugger;
 
         if (err) {
