@@ -16,7 +16,7 @@ var express = require('express');
 var fs = require('fs');
 var http = require('http'); //Used for GET and POST requests
 var request = require('request'); //Used for CURL requests.
-//var Promise = require('node-promise');
+var Promise = require('node-promise');
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
 var global = {}; //Global object variable.
@@ -132,9 +132,23 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
+      var promiseDockerfile = global.writeFiles.writeDockerfile(data.clientData.port, data.clientData.username, data.clientData.password);
 
-      global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
+      var promiseRT = global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
+      
+      promiseDockerfile.then( function(results) {
+        debugger;
+      }, function(error) {
+        debugger;
+        console.error('Error resolving promise. Error: ', error);
+      });
+      
+      promiseRT.then( function(results) {
+        debugger;
+      }, function(error) {
+        debugger;
+        console.error('Error resolving promise. Error: ', error);
+      });
       
     } else {
       debugger;
@@ -147,3 +161,16 @@ request.post(
 
 });
 
+/*
+this.compareServerClientTimestamps = function(fileName) {
+  //debugger;
+
+  var promise = new Promise.Promise();
+
+  //promise.resolve(obj);
+  //promise.reject(error);
+  
+
+  return promise;
+}
+*/

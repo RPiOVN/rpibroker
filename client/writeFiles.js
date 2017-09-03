@@ -6,6 +6,7 @@
  */
 
 var fs = require('fs');
+var Promise = require('node-promise');
 
 var globalThis; //Used in functions below when 'this' loses context.
 
@@ -20,6 +21,8 @@ function Constructor() {
 
   this.writeDockerfile = function(port, username, password) {
 
+    var promise = new Promise.Promise();
+    
     var fileString = "FROM resin/rpi-raspbian\n"+
         "MAINTAINER Chris Troutner <chris.troutner@gmail.com>\n"+
         "RUN apt-get update\n"+
@@ -50,14 +53,21 @@ function Constructor() {
       if(err) {
         debugger;
         console.error('Error while trying to write file: ', err);
+        promise.reject(err);
 
       } else {
         console.log('Dockerfile written successfully!');
+        promise.resolve();
       }
     });
+    
+    return promise;
   };
 
   this.writeReverseTunnel = function(port, username, password) {
+    
+    var promise = new Promise.Promise();
+    
     var fileString = "var tunnel = require('reverse-tunnel-ssh');\n"+
       "tunnel({\n"+
       "  host: '"+global.serverIp+"',\n"+
@@ -77,11 +87,15 @@ function Constructor() {
       if(err) {
         debugger;
         console.error('Error while trying to write file: ', err);
-
+        promise.reject(err);
+        
       } else {
         console.log('reverse-tunnel-generated.js written successfully!');
+        promise.resolve();
       }
     });
+    
+    return promise;
   };
   
 
