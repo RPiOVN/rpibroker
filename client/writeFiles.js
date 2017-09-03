@@ -38,6 +38,7 @@ function Constructor() {
         "RUN apt-get install -y nodejs\n"+
         "RUN apt-get install -y build-essential\n"+
         "RUN npm install express\n"+
+        "RUN npm install reverse-tunnel-ssh\n"+
         "RUN useradd -ms /bin/bash "+username+"\n"+
         "RUN echo "+username+":"+password+" | chpasswd\n"+
         "EXPOSE "+port+"\n"+
