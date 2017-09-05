@@ -133,11 +133,7 @@ request.post(
       console.log('Password: '+data.clientData.password);
       console.log('Port: '+data.clientData.port);
       
-      
-      
       var promiseRT = global.writeFiles.writeReverseTunnel(data.clientData.port, data.clientData.username, data.clientData.password);
-      
-      
       
       promiseRT.then( function(results) {
         //debugger;
@@ -170,6 +166,7 @@ request.post(
 
 });
 
+/*
 function launchDocker() {
   debugger;
   console.log('Launching Docker container...');
@@ -194,7 +191,6 @@ function launchDocker() {
         }
       });
     }
-
   });
-  
 }
+*/
