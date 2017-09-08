@@ -54,6 +54,25 @@ define([
     //This function is called when the user clicks the 'Delete' button associated with a device.
     deleteDevice: function(deviceId) {
       debugger;
+      
+      //Validation & Error Handling
+      if(deviceId == '')
+        return;
+      
+      $.get('/api/devicePublicData/delete', '', function(data) {
+        if(!data.success) {
+          console.error('Deleting devicePublicData model from server was not successful!');
+        }
+      })
+      .fail( function(jqxhr, textStatus, error) {
+        //This is the error handler.
+        debugger;
+
+        log.push('Error while trying to delete device public data model '+deviceId+'in devicesView.js/deleteDevice().');
+        //sendLog();
+        console.error('Communication error with server while execute devicesView.js/deleteDevice()');
+        
+      });
     },
     
     //This function is called by render(). It populates the DOM by cloning the scaffold and populating it with device data
