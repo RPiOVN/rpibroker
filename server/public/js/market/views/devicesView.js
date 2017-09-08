@@ -59,7 +59,7 @@ define([
       if(deviceId == '')
         return;
       
-      $.get('/api/devicePublicData/delete', '', function(data) {
+      $.get('/api/devicePublicData/'+deviceId+'/remove', '', function(data) {
         if(!data.success) {
           console.error('Deleting devicePublicData model from server was not successful!');
         }
