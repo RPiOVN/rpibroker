@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var request = require('request');
 
 
 var DevicePublicModel = keystone.list('DevicePublicModel');
@@ -173,19 +174,54 @@ exports.register = function(req, res) {
       item.set('checkinTimeStamp', data.checkinTimeStamp);
       item.save();
       
-      //Generate username, password, and port
+      var deviceData;
+      
+      request('http://localhost:3000/api/portcontrol/create', 
+      function (error, response, body) {
+
+        //If the request was successfull.
+        if (!error && response.statusCode == 200) {
+          //debugger;
+
+          //Convert the data from a string into a JSON object.
+          var data = JSON.parse(body); //Convert the returned JSON to a JSON string.
+          deviceData = data.newDevice;
+
+          res.apiResponse({
+            clientData: deviceData
+          })
+          
+          console.log('API call to portcontrol succeeded!');
+          
+        //Server returned an error.
+        } else {
+          //debugger;
+
+          try {
+            
+            var msg = '...Error returned from server when requesting log file status. Server returned: '+error.message;
+            console.error(msg);
+
+          //Catch unexpected errors.
+          } catch(err) {
+            var msg = 'Error in devicePublicData.js/register() while trying to call /api/portcontrol/create. Error: '+err.message;
+            console.error(msg);
+          }
+        }
+      });
       
       //Save data to the devicePrivateModel
       
       //Return the data to the client.
-      var obj = {};
-      obj.username = 'test123';
-      obj.password = 'password123';
-      obj.port = 'port123';
+      //var obj = {};
+      //obj.username = 'test123';
+      //obj.password = 'password123';
+      //obj.port = 'port123';
+      //obj.username = data.username;
+      //obj.password = data.password;
+      //obj.port = data.port;
       
-      res.apiResponse({
-        clientData: obj
-      })
+      
       
     } catch(err) {
       debugger;

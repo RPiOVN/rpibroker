@@ -19,7 +19,7 @@ define([
 		// The DOM events specific to an item.
 		events: {
       'click #addNewDeviceBtn': 'loadDeviceEditor',
-      'click .deviceDelete': 'deleteDevice'
+      //'click .deviceDelete': 'deleteDevice'
 		},
 
 		initialize: function () {
@@ -52,14 +52,39 @@ define([
     },
     
     //This function is called when the user clicks the 'Delete' button associated with a device.
-    deleteDevice: function() {
+    deleteDevice: function(deviceId) {
       debugger;
+      
+      var thisView = this;
+      
+      //Validation & Error Handling
+      if(deviceId == '')
+        return;
+      
+      $.get('/api/devicePublicData/'+deviceId+'/remove', '', function(data) {
+        if(!data.success) {
+          console.error('Deleting devicePublicData model from server was not successful!');
+        } else {
+          thisView.render();
+        }
+      })
+      .fail( function(jqxhr, textStatus, error) {
+        //This is the error handler.
+        debugger;
+
+        log.push('Error while trying to delete device public data model '+deviceId+'in devicesView.js/deleteDevice().');
+        //sendLog();
+        console.error('Communication error with server while execute devicesView.js/deleteDevice()');
+        
+      });
     },
     
     //This function is called by render(). It populates the DOM by cloning the scaffold and populating it with device data
     //from the database.
     populateDevices() {
       //debugger;
+      
+      var thisView = this; //For maintaining scope.
       
       $.get('/api/devicePublicData/list', '', function(data) {
         //debugger;
@@ -91,6 +116,7 @@ define([
           thisRow.find('.deviceId').text(thisDevice._id);
           thisRow.find('.deviceName').text(thisDevice.deviceName);
           thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
+          thisRow.find('.deviceDelete').attr('onclick', 'global.devicesView.deleteDevice("'+thisDevice._id+'")');
           
           global.devicesView.$el.find('#deviceList').append(thisRow);
           thisRow.show();

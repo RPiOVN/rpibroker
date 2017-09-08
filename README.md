@@ -6,7 +6,7 @@ to co-location services like [Raspberry Pi Hosting](https://raspberry-hosting.co
 [Mythic Beasts](https://www.mythic-beasts.com/order/rpi).
 However, instead of using a data center,
 the marketplace would use an array of psudo-anonymous [Raspberry Pi](https://www.raspberrypi.org/) 
-or other IoT devices hosted by people participating in a marketplace. Anyone
+(or other IoT devices) hosted by people participating in a marketplace. Anyone
 with an internet connection and a device capable of running [Docker](https://www.docker.com/) can rent
 that device in the RPi Broker marketplace.
 
@@ -17,7 +17,7 @@ capable of delivering websites or web apps.
 
 Imagine being able to spin up multiple copies of your server, in multiple locations, in a matter of seconds, 
 all hundreds of times faster than
-any government could censor them. And the servers can be paid for with Bitcoin or other cryptocurrency, so as
+any government could censor them. And the servers can be paid for with Bitcoin or other cryptocurrency. As
 long as you're carefull in how you obtain that cryptocurrency, you could create the servers anonymously, without
 any paper trail back to you. Due to a strongly encrypted Docker container, the people hosting the physical device
 have no way to know what is being served or ability to access the files on the device.

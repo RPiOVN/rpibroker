@@ -49,7 +49,7 @@ exports.create = function(req, res) {
   //Get a port assignment
   //var port = getPort(req, data2);
   
-  
+  //Retrieve the list of used ports from the database.
   PortsUsedModel.model.find(function(err, items) {
 		
 		if (err) return res.apiError('database error', err);
@@ -63,7 +63,7 @@ exports.create = function(req, res) {
       var data = {};
       
       //item.set('usedPort', ["3000"]);
-      data.usedPort = ["3000"];
+      data.usedPort = ["6000"];
       item.getUpdateHandler(req).process(data, function(err) {
 
         if (err) return res.apiError('error', err);
@@ -72,7 +72,7 @@ exports.create = function(req, res) {
 
       });
       
-      var newPort = "3001";
+      var newPort = "6001";
       
     } else {
       var portsModel = items[0];
@@ -81,7 +81,7 @@ exports.create = function(req, res) {
       
       //Error Handling
       if(lastPort == undefined)
-        lastPort = "3000";
+        lastPort = "6000";
       
       var newPort = Number(lastPort)+1;
       newPort = newPort.toString();
@@ -104,6 +104,7 @@ exports.create = function(req, res) {
     //  device: item
     //});
 
+    /*
     var item2 = new DeviceModel.model();
     item2.getUpdateHandler(req).process(data2, function(err) {
 
@@ -112,25 +113,12 @@ exports.create = function(req, res) {
       res.apiResponse({
         newDevice: item2
       });
-/*
-      //Add user to the system.
-      var options = {
-        cachePassword: true,
-        prompt: 'Password, yo? ',
-        spawnOptions: { }
-      };
-      
-      console.log('Adding user '+data2.username+' to system.');
-      child = sudo([ './adduser', data2.username, data2.password ], options);
-      child.stdout.on('data', function (data) {
-          console.log(data.toString());
-      });
-      child.stderr.on('data', function (data) {
-        console.log('stderr: ' + data);
-      });
-*/      
+  
     });
-    
+    */
+    res.apiResponse({
+      newDevice: data2
+    });
     
 		//res.apiResponse({
 		//	collection: items
