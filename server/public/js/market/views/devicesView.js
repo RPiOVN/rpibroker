@@ -61,6 +61,8 @@ define([
     populateDevices() {
       //debugger;
       
+      var thisView = this; //For maintaining scope.
+      
       $.get('/api/devicePublicData/list', '', function(data) {
         //debugger;
         
@@ -91,7 +93,7 @@ define([
           thisRow.find('.deviceId').text(thisDevice._id);
           thisRow.find('.deviceName').text(thisDevice.deviceName);
           thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
-          thisRow.find('.deviceDelete').on('click', this.deleteDevice(thisDevice._id));
+          thisRow.find('.deviceDelete').on('click', thisView.deleteDevice(thisDevice._id));
           
           global.devicesView.$el.find('#deviceList').append(thisRow);
           thisRow.show();
