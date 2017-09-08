@@ -19,7 +19,7 @@ define([
 		// The DOM events specific to an item.
 		events: {
       'click #addNewDeviceBtn': 'loadDeviceEditor',
-      'click .deviceDelete': 'deleteDevice'
+      //'click .deviceDelete': 'deleteDevice'
 		},
 
 		initialize: function () {
@@ -52,7 +52,7 @@ define([
     },
     
     //This function is called when the user clicks the 'Delete' button associated with a device.
-    deleteDevice: function() {
+    deleteDevice: function(deviceId) {
       debugger;
     },
     
@@ -91,6 +91,7 @@ define([
           thisRow.find('.deviceId').text(thisDevice._id);
           thisRow.find('.deviceName').text(thisDevice.deviceName);
           thisRow.find('.deviceDescription').find('p').text(thisDevice.deviceDesc);  
+          thisRow.find('.deviceDelete').on('click', this.deleteDevice(thisDevice._id));
           
           global.devicesView.$el.find('#deviceList').append(thisRow);
           thisRow.show();
