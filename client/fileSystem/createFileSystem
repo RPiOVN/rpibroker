@@ -15,8 +15,8 @@ dd if=/dev/urandom of=$CRYPTFS_ROOT/key bs=4K count=1
 # Create and allocate a 1 GB swap file:
 dd if=/dev/zero of=$CRYPTFS_ROOT/swap bs=1M count=1024
 
-# Create a sparse 2 GB file:
-truncate -s 2G $CRYPTFS_ROOT/disk
+# Create a sparse 4 GB file:
+truncate -s 4G $CRYPTFS_ROOT/disk
 
 #change the permissions on all these files so only root can access them
 chmod -R 700 "$CRYPTFS_ROOT"
@@ -53,6 +53,8 @@ echo "cryptfs  $CRYPTFS_ROOT/disk  $CRYPTFS_ROOT/key  luks" >> /etc/crypttab
 
 # Add it to /etc/fstab so it restores after reboot
 echo "/dev/mapper/cryptfs  /mnt/cryptfs  ext4  defaults  0  1" >> /etc/fstab
+
+mkdir /home/pi/brokerClient
 
 # Loop through the paths that we'd like to be encrypted:
 for DIR_NAME in home/pi/brokerClient var/lib/docker
