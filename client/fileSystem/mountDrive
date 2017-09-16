@@ -6,5 +6,5 @@
 umount /dev/sda1
 mkdir /media/usb
 mount /dev/sda1 /media/usb
-sudo chown -R pi:pi /media/usb
+chown -R pi:pi /media/usb
 
