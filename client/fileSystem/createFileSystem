@@ -73,6 +73,6 @@ done
 #Finally, install docker. Docker must be installed AFTER the encrypted filesystem setup has completed.
 curl -sSL https://get.docker.com | sh
 
-
-
+#Add pi to the docker group
+sudo usermod -aG docker pi
 
