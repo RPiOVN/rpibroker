@@ -1,11 +1,11 @@
 var tunnel = require('reverse-tunnel-ssh');
 tunnel({
-  host: 'undefined',
+  host: '174.138.35.118',
   port: 6100,
-  username: '5svGuX2Bik',
-  password: '4vo34CMXwU',
+  username: 'sshuser',
+  password: 'sshuserpassword',
   dstHost: '0.0.0.0',
-  dstPort: 3017, 
+  dstPort: 6018, 
   srcPort: 3100 
 }, function(error, clientConnection) {
   if(error)
