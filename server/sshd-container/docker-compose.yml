@@ -12,5 +12,5 @@ sshd-container:
 #    - ./theme:/home/connextcms/theme
 #    - ./plugins:/home/connextcms/plugins
 #    - ./public:/home/connextcms/public
-#  restart: always
+  restart: always
     

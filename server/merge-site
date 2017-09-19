@@ -24,4 +24,5 @@ cp publicsettings.json ~/myCMS/public/js
 cp privatesettings.json ~/myCMS/private/
 
 echo Copying public directory
-cp -r public ~/myCMS/
+cp -rP public ~/myCMS/
+cp -rP public ~/
