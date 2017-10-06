@@ -41,6 +41,7 @@ function Constructor() {
         "RUN npm install reverse-tunnel-ssh\n"+
         "RUN useradd -ms /bin/bash "+username+"\n"+
         "RUN echo "+username+":"+password+" | chpasswd\n"+
+        "VOLUME /home/"+username+"/encrypted\n"+
         "EXPOSE "+port+"\n"+
         "EXPOSE 3100\n"+
         "COPY dummyapp.js dummyapp.js\n"+
