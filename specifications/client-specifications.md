@@ -38,14 +38,18 @@ responsibility and encryption keys in the hands of the renter. Owners will be un
 encrypted drives. However, instructions for setting up LUKS encryption inside the renters Docker container
 will be provided by this project.
 
+This is an excellent guide that can be adapted to encrypt persistant storage in a Docker container:
+https://launchbylunch.com/posts/2014/Jan/13/encrypting-docker-on-digitalocean/
+
 ## Deployment Packages
 A collection of scripts will be made available to renters. These are preconfigured shell scripts or some other
 type of package manager that allows them to quickly deploy common web services like NextCloud, a blog, a webserver,
-a single page application development environment, etc. Easy script to deploy many of 
+a single page application development environment, etc. Easy scripts to deploy many of 
 [these use cases](https://raspberry-hosting.com/en/applications).
 
 This project will rely on user contributions for this section. If interested, please see our
 [Contributions README](../CONTRIBUTING.md).
 
 ## Testing
-
+Unit testing is initially planning to use Mocha, but we could use any platform at this stage. We could really use
+help with getting a solid unit testing library in place for Client software.
