@@ -161,6 +161,7 @@ request.post(
       debugger;
 
       console.error('Server responded with error when trying to register the device: ',error);
+      console.error('Ensure the ID in your deviceGUID.json file matches the ID in the Owned Devices section of the marketplace.');
     }
 	} catch(err) {
 		console.log('rpiBroker.js exiting with error:'+err);
