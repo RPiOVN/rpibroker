@@ -1,3 +1,11 @@
+# This repository is obsolete:
+This is an old repository. The code in the `server` directory was a ConnextCMS site template prototype for the 
+[p2pvps-server repository](https://github.com/RPiOVN/p2pvps-server). The prototype code used Backbone.js,
+but the new site repository uses Vue.js. The code in the `client` directory was similarly a prototype.
+This code is being forked to the **p2pvsp-client repository** (link coming soon).
+
+---
+
 # RPi Broker
 ## What is RPi Broker?
 RPi Broker aspires to create a marketplace offering Virtal Private Servers (VPS), similar to 
