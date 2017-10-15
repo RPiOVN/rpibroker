@@ -21,8 +21,10 @@ var exec = require('child_process').exec; //Used to execute command line instruc
 //var Gpio = require('onoff').Gpio; //Used to read GPIO pins
 
 //var global = {}; //Global object variable.
-global.serverIp = "174.138.35.118";
-global.serverPort = "3002";
+//global.serverIp = "174.138.35.118";
+//global.serverPort = "3002";
+global.serverIp = "192.168.2.2";
+global.serverPort = "3000";
 
 //Local libraries based on the different featuers of this software
 /*
